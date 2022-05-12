@@ -1,19 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] float setTime = 180.0f;
+    [SerializeField] int countdownMinutes = 3;
     [SerializeField] Text countdownText;
+    private float countdownSeconds;
     public GameObject rangeObject;
+    public GameObject Player;
+    public GameObject Enemy;
     public int enemySpwanTimeMin;
     public int enemySpwanTimeMax;
     public float friendSpwanTime;
     BoxCollider rangeCollider;
+    bool bossTime;
     private void Awake()
     {
         Application.targetFrameRate = 60;
@@ -24,14 +30,13 @@ public class GameManager : MonoBehaviour
     Vector3 Return_RandomPosition()
     {
         Vector3 originPosition = rangeObject.transform.position;
-        // �ݶ��̴��� ����� �������� bound.size ���
+       
         float range_X = rangeCollider.bounds.size.x;
         float range_Z = rangeCollider.bounds.size.z;
 
-        range_X = Random.Range((range_X / 2) * -1, range_X / 2);
-        range_Z = Random.Range((range_Z / 2) * -1, range_Z / 2);
+        range_X = UnityEngine.Random.Range((range_X / 2) * -1, range_X / 2);
+        range_Z = UnityEngine.Random.Range((range_Z / 2) * -1, range_Z / 2);
         Vector3 RandomPostion = new Vector3(range_X, 1f, range_Z);
-
         Vector3 respawnPosition = originPosition + RandomPostion;
         return respawnPosition;
     }
@@ -40,39 +45,37 @@ public class GameManager : MonoBehaviour
     public List<GameObject> friend = new List<GameObject>();
     int spawnEnemy;
     int enemyIndex;
-    int friendIndex = 0;
+    int friendIndex;
     Scene scene;
    
 
     IEnumerator EnemyRandomRespawn_Coroutine()
     {
-        while (setTime > 0)
+        while (countdownSeconds > 0 && bossTime == false)
         {
-            spawnEnemy = Random.Range(enemySpwanTimeMin, enemySpwanTimeMax);
-            enemyIndex = Random.Range(0, enemy.Count);
+            spawnEnemy = UnityEngine.Random.Range(enemySpwanTimeMin, enemySpwanTimeMax);
+            enemyIndex = UnityEngine.Random.Range(0, enemy.Count);
             yield return new WaitForSeconds(spawnEnemy);
-
-            // ���� ��ġ �κп� ������ ���� �Լ� Return_RandomPosition() �Լ� ����
-            GameObject instantCapsul = Instantiate(enemy[enemyIndex], Return_RandomPosition(), Quaternion.identity);
-           
+            GameObject instantEnemy = Instantiate(enemy[enemyIndex], Return_RandomPosition(), Quaternion.identity);
+            instantEnemy.transform.parent = Enemy.transform;
         }
     }
 
     IEnumerator FriendsRandomRespawn_Coroutine()
     {
-        while (friendIndex < friend.Count)
+        while (countdownSeconds > 0 && bossTime == false)
         {
+            friendIndex = UnityEngine.Random.Range(0, friend.Count);
             yield return new WaitForSeconds(friendSpwanTime);
-
-            // ���� ��ġ �κп� ������ ���� �Լ� Return_RandomPosition() �Լ� ����
-            GameObject instantCapsul = Instantiate(friend[friendIndex], Return_RandomPosition(), Quaternion.identity);
-            friendIndex++;
+            GameObject instantFriends = Instantiate(friend[friendIndex], Return_RandomPosition(), Quaternion.identity);
         }
     }
 
     void Start()
     {
-        countdownText.text = setTime.ToString();
+        bossTime = false;
+        countdownSeconds = countdownMinutes * 60;
+        GameObject instantPlayer = Instantiate(Player, new Vector3(0, -1, 0), Quaternion.identity);
         StartCoroutine(EnemyRandomRespawn_Coroutine());
         StartCoroutine(FriendsRandomRespawn_Coroutine());
         scene = SceneManager.GetActiveScene();
@@ -81,20 +84,36 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (setTime > 0)
-            setTime -= Time.deltaTime;
-        else if (setTime <= 0)
+        countdownSeconds -= Time.deltaTime;
+        var span = new TimeSpan(0, 0, (int)countdownSeconds);
+        countdownText.text = span.ToString(@"mm\:ss");
+
+        if (countdownSeconds <= 0 && bossTime == false)
         {
-            //Time.timeScale = 0.0f;
+            bossTime = true;
+            StopAllCoroutines();
+            countdownSeconds += 60;
+            Destroy(Enemy);
+        }
+
+        if (countdownSeconds <= 0 && bossTime == true)
+        {
             if(scene.name == "MainGameScene")
             SceneManager.LoadScene("stage2");
-            if (scene.name == "stage2")
+            else if (scene.name == "stage2")
             SceneManager.LoadScene("stage3");
-            if (scene.name == "stage3")
+            else if (scene.name == "stage3")
             SceneManager.LoadScene("EndScene");
         }
-        countdownText.text = Mathf.Round(setTime).ToString();
     }
 
-
+    public void isBossDead()
+    {
+        if (scene.name == "MainGameScene")
+            SceneManager.LoadScene("stage2");
+        else if (scene.name == "stage2")
+            SceneManager.LoadScene("stage3");
+        else if (scene.name == "stage3")
+            SceneManager.LoadScene("EndScene");
+    }
 }

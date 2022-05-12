@@ -712,7 +712,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 124
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!136 &4263583010967695773
 CapsuleCollider:
@@ -800,12 +800,11 @@ MonoBehaviour:
   BodySpeed: 10
   Gap: 30
   prefab:
-  - {fileID: 2253635914030173720, guid: f638023578b13b247b28850361a4818f, type: 3}
-  - {fileID: 629835555496684826, guid: 517cdc1289c8ed1448f9b866779fad39, type: 3}
-  - {fileID: 4930500482840679355, guid: 679c72d80f428c24da7634657037cec5, type: 3}
   - {fileID: 3206606908493751068, guid: 4265397b75dfb244eb94d44f01b10b62, type: 3}
-  - {fileID: 5572011190506560794, guid: cbf1b31ef523a0b45978cff755b30c07, type: 3}
+  - {fileID: 2253635914030173720, guid: f638023578b13b247b28850361a4818f, type: 3}
   - {fileID: 2387404689949210114, guid: a16a5fda5f6f91444860a8a68a9fa940, type: 3}
+  - {fileID: 5572011190506560794, guid: cbf1b31ef523a0b45978cff755b30c07, type: 3}
+  - {fileID: 629835555496684826, guid: 517cdc1289c8ed1448f9b866779fad39, type: 3}
   - {fileID: 6550458328224208777, guid: 0452cbf38faf1ac48964726f92ff494b, type: 3}
 --- !u!114 &4263583010967695766
 MonoBehaviour:

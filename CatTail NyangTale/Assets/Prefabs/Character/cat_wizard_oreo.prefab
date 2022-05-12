@@ -879,7 +879,7 @@ GameObject:
   - component: {fileID: 4928653701869436074}
   m_Layer: 0
   m_Name: cat_wizard_oreo
-  m_TagString: Untagged
+  m_TagString: Friends
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

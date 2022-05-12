@@ -808,7 +808,7 @@ GameObject:
   - component: {fileID: 8480970378819387398}
   m_Layer: 0
   m_Name: cat_cowboy_banggeul
-  m_TagString: Untagged
+  m_TagString: Friends
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

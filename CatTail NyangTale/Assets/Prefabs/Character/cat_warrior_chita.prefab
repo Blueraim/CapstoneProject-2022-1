@@ -864,7 +864,7 @@ GameObject:
   - component: {fileID: 5358217417053122327}
   m_Layer: 0
   m_Name: cat_warrior_chita
-  m_TagString: Untagged
+  m_TagString: Friends
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

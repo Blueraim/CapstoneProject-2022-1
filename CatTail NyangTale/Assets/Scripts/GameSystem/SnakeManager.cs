@@ -6,16 +6,19 @@ public class SnakeManager : MonoBehaviour
 {
     public float BodySpeed;
     public int Gap;
+    private int Warrior = 0;
+    private int Archer = 1;
+    private int Wizard = 2;
+    private int Cowboy = 3;
+    private int Bomber = 4;
+    private int IceWizard = 5;
+    private int friends;
+
 
     [SerializeField] List<GameObject> prefab = new List<GameObject>();
 
     private List<GameObject> BodyParts = new List<GameObject>();
     private List<Vector3> PositionHistory = new List<Vector3>();
-
-    void Start()
-    {
-       
-    }
 
     void Update()
     {
@@ -35,16 +38,37 @@ public class SnakeManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        for (int i = 0; i < prefab.Count; i++)
+        if (other.CompareTag("1"))
         {
-            // ####tag 말고 friend 오브젝트에 스크립트 추가해서 그 안의 변수로 구분?####
-            if(other.CompareTag((i + 1).ToString())){
-                Destroy(other.gameObject);
-                GrowSnake(i);
-
-                return;
-            }
+            GrowSnake(Warrior);
+            Destroy(other.gameObject);
         }
+        else if (other.CompareTag("2"))
+        {
+            GrowSnake(Archer);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("3"))
+        {
+            GrowSnake(Wizard);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("4"))
+        {
+            GrowSnake(Cowboy);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("5"))
+        {
+            GrowSnake(Bomber);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("6"))
+        {
+            GrowSnake(IceWizard);
+            Destroy(other.gameObject);
+        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -53,6 +77,10 @@ public class SnakeManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        /*else if (collision.collider.CompareTag("Friends"))
+        {
+            Destroy(this.gameObject);
+        }*/
     }
 
     private void GrowSnake(int i)

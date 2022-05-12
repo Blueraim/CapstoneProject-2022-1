@@ -18,8 +18,9 @@ public class VirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Touch Begin : " + eventData);
+        /*Debug.Log("Touch Begin : " + eventData);*/
     }
+
     public void OnDrag(PointerEventData eventData)
     {
         touchPosition = Vector2.zero;

@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 2967329045440380859}
   m_Layer: 0
   m_Name: cat_archer_bamkong
-  m_TagString: Untagged
+  m_TagString: Friends
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

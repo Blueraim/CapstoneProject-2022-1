@@ -781,7 +781,7 @@ GameObject:
   - component: {fileID: 6197333320406963072}
   m_Layer: 0
   m_Name: cat_wizard_o's
-  m_TagString: Untagged
+  m_TagString: Friends
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

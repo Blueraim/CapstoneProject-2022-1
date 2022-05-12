@@ -34,7 +34,7 @@ public class Health : MonoBehaviour
         rigid.AddForce(dir * knockBackForce, ForceMode.Impulse);
     }
 
-    void Die(){
+    public void Die(){
         // 죽는 애니메이션 실행
         
         Debug.Log(this.gameObject.name + "죽음");
