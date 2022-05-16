@@ -13,7 +13,7 @@ public class EnemyExplosion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player") // 동료들 태그도 추가해야 함
+        if (other.tag == "Player" || other.tag == "Friends")
         {
             other.gameObject.GetComponent<Health>().TakeDamage(damage);
         }

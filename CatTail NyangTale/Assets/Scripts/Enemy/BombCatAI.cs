@@ -9,6 +9,7 @@ public class BombCatAI : MonoBehaviour
     public LayerMask playerLayer;
     public GameObject explosion;
 
+    private bool targetOff = true;
     private Transform target;
     private NavMeshAgent nav;
 
@@ -18,7 +19,12 @@ public class BombCatAI : MonoBehaviour
     }
 
     private void Update() {
-        TargetDetect();
+        if(targetOff)
+            TargetDetect();
+
+        if(target != null){
+            nav.SetDestination(target.position);
+        }
     }
 
     void TargetDetect()
@@ -33,6 +39,7 @@ public class BombCatAI : MonoBehaviour
                 target = player.gameObject.transform;
                 nav.SetDestination(target.position);
             }
+            targetOff = false;
         }
     }
 
@@ -42,13 +49,13 @@ public class BombCatAI : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
-        if(other.gameObject.tag == "Player"){
+        if(other.gameObject.tag == "Player" || other.gameObject.tag == "Friends"){
             Explosion();
         }
     }
 
     void Explosion(){
-        Instantiate(explosion, transform.position, transform.rotation);
+        Instantiate(explosion, transform.position + new Vector3(0,0.2f,0), transform.rotation);
         Destroy(gameObject);
     }
 }
