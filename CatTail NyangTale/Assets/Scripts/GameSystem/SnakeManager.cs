@@ -71,21 +71,10 @@ public class SnakeManager : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("tree"))
-        {
-            Destroy(this.gameObject);
-        }
-        /*else if (collision.collider.CompareTag("Friends"))
-        {
-            Destroy(this.gameObject);
-        }*/
-    }
-
     private void GrowSnake(int i)
     {
         GameObject body = Instantiate(prefab[i]);
         BodyParts.Add(body);
     }
+      
 }

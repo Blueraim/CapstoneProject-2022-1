@@ -34,10 +34,26 @@ public class Health : MonoBehaviour
         rigid.AddForce(dir * knockBackForce, ForceMode.Impulse);
     }
 
-    public void Die(){
+    public void Die()
+    {
         // 죽는 애니메이션 실행
-        
-        Debug.Log(this.gameObject.name + "죽음");
         GameObject.Destroy(this.gameObject);
+        if(this.gameObject.CompareTag("Player"))
+        GameManager.instance.OnPlayerDead();
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("tree"))
+        {
+            Die();
+        }
+        /*     else if (collision.collider.CompareTag("Friends"))
+             {
+                 Die();
+             }
+        */
+
+    }
+
 }
