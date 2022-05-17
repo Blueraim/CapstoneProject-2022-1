@@ -42,7 +42,7 @@ public class UFOCatAI : MonoBehaviour
         {
             Attack();
         }
-        Debug.Log(curWalkTime);
+        
         if(curWalkTime >= nextWalkTime){
             SearchWalkPoint();
             nav.SetDestination(walkPoint);

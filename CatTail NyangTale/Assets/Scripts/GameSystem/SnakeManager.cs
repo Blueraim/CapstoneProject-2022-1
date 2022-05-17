@@ -27,11 +27,14 @@ public class SnakeManager : MonoBehaviour
         int index = 1;
         foreach (var body in BodyParts)
         {
-            Vector3 point = PositionHistory[Mathf.Clamp(index * Gap ,0, PositionHistory.Count - 1)];
-            Vector3 moveDirection = point - body.transform.position;
-            body.transform.position += moveDirection * BodySpeed * Time.deltaTime;
-            body.transform.LookAt(point);
-            index++;
+            if (body != null)
+            {
+                Vector3 point = PositionHistory[Mathf.Clamp(index * Gap, 0, PositionHistory.Count - 1)];
+                Vector3 moveDirection = point - body.transform.position;
+                body.transform.position += moveDirection * BodySpeed * Time.deltaTime;
+                body.transform.LookAt(point);
+                index++;
+            }
         }
 
     }
@@ -74,7 +77,16 @@ public class SnakeManager : MonoBehaviour
     private void GrowSnake(int i)
     {
         GameObject body = Instantiate(prefab[i]);
+        body.transform.parent = GameManager.instance.PlayerParent.transform;
         BodyParts.Add(body);
     }
-      
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("tree"))
+        {
+            Destroy(gameObject);
+            GameManager.instance.OnPlayerDead();
+        }
+    }
 }

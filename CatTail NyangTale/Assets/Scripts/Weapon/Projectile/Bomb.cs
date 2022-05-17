@@ -41,7 +41,7 @@ public class Bomb : MonoBehaviour
 
     private void OnDestroy() {
         //폭발 이펙트
-        Debug.Log("폭탄 폭발");
+      /*  Debug.Log("폭탄 폭발");*/
 
         Instantiate(explodeZone, gameObject.transform.position, gameObject.transform.rotation);
     }

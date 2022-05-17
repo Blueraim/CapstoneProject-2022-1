@@ -16,7 +16,9 @@ public class GameManager : MonoBehaviour
     private float countdownSeconds;
     public GameObject rangeObject;
     public GameObject Player;
-    public GameObject Enemy;
+    public GameObject EnemyParent;
+    public GameObject PlayerParent;
+    public GameObject FriendParent;
     public int enemySpwanTimeMin;
     public int enemySpwanTimeMax;
     public float friendSpwanTime;
@@ -75,7 +77,7 @@ public class GameManager : MonoBehaviour
             enemyIndex = UnityEngine.Random.Range(0, enemy.Count);
             yield return new WaitForSeconds(spawnEnemy);
             GameObject instantEnemy = Instantiate(enemy[enemyIndex], Return_RandomPosition(), Quaternion.identity);
-            instantEnemy.transform.parent = Enemy.transform;
+            instantEnemy.transform.parent = EnemyParent.transform;
         }
     }
 
@@ -86,6 +88,7 @@ public class GameManager : MonoBehaviour
             friendIndex = UnityEngine.Random.Range(0, friend.Count);
             yield return new WaitForSeconds(friendSpwanTime);
             GameObject instantFriends = Instantiate(friend[friendIndex], Return_RandomPosition(), Quaternion.identity);
+            instantFriends.transform.parent = FriendParent.transform;
         }
     }
 
@@ -122,7 +125,8 @@ public class GameManager : MonoBehaviour
             bossTime = true;
             StopAllCoroutines();
             countdownSeconds += 60;
-            findAllChildren(Enemy);
+            findAllChildrenEnemy(EnemyParent);
+            findAllChildrenFriend(FriendParent);
         }
 
         if (countdownSeconds <= 0 && bossTime == true)
@@ -146,7 +150,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("EndScene");
     }
 
-    public void findAllChildren(GameObject Enemy)
+    public void findAllChildrenEnemy(GameObject Enemy)
     {
         Transform[] enemyChild = Enemy.GetComponentsInChildren<Transform>();
         if(enemyChild != null)
@@ -158,9 +162,22 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    public void findAllChildrenFriend(GameObject Friend)
+    {
+        Transform[] friendChild = Friend.GetComponentsInChildren<Transform>();
+        if (friendChild != null)
+        {
+            for (int i = 1; i < friendChild.Length; i++)
+            {
+                if (friendChild[i] != transform)
+                    Destroy(friendChild[i].gameObject);
+            }
+        }
+    }
 
     public void OnPlayerDead()
     {
+        Time.timeScale = 0;
         isGameover = true;
         gameOver.SetActive(true);
         ScoreAdd();
@@ -170,6 +187,7 @@ public class GameManager : MonoBehaviour
     public void ReTry()
     {
         SceneManager.LoadScene("StartScene");
+        Time.timeScale = 1;
     }
 
     public void ScoreAdd()

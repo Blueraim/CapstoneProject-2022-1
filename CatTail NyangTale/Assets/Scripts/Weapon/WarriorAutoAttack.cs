@@ -68,7 +68,7 @@ public class WarriorAutoAttack : MonoBehaviour
             {
                 //넉백
                 enemy.GetComponent<Health>().knockBack(gameObject, warrior.knockBackForce);
-                Debug.Log("넉백");
+                /*Debug.Log("넉백");*/
 
                 enemy.GetComponent<Health>().TakeDamage(warrior.damage);
             }

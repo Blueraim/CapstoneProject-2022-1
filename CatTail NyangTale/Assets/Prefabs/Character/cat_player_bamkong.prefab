@@ -800,7 +800,7 @@ MonoBehaviour:
   BodySpeed: 10
   Gap: 30
   prefab:
-  - {fileID: 3206606908493751068, guid: 4265397b75dfb244eb94d44f01b10b62, type: 3}
+  - {fileID: 4930500482840679355, guid: 679c72d80f428c24da7634657037cec5, type: 3}
   - {fileID: 2253635914030173720, guid: f638023578b13b247b28850361a4818f, type: 3}
   - {fileID: 2387404689949210114, guid: a16a5fda5f6f91444860a8a68a9fa940, type: 3}
   - {fileID: 5572011190506560794, guid: cbf1b31ef523a0b45978cff755b30c07, type: 3}
@@ -845,7 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a80d0b8f1fe70142a1184e94c3ca8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 40
+  maxHealth: 100
   healthBar: {fileID: 4643122073257859861}
 --- !u!1 &4248815098653952466
 GameObject:

@@ -13,6 +13,7 @@ public class Magic : MonoBehaviour
     public GameObject target;
     [HideInInspector]
     public int damage;
+    private Vector3 enemy;
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +24,14 @@ public class Magic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, target.transform.position, speed * Time.deltaTime);
+        enemy = target.transform.position;
+       gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, enemy, speed * Time.deltaTime);
+        enemy = new Vector3(0,0,0);
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log(other.gameObject.layer);
+        /*Debug.Log(other.gameObject.layer);*/
         if (other.gameObject.layer == 6)
         { 
             other.gameObject.GetComponent<Health>().TakeDamage(damage);

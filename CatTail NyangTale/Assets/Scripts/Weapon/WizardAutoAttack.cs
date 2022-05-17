@@ -46,6 +46,10 @@ public class WizardAutoAttack : MonoBehaviour
             if(wizard.attackTarget != null){
                 Attack();
             }
+            else
+            {
+
+            }
 
             currentAttackRate = wizard.attackRate;
         }
@@ -122,6 +126,7 @@ public class WizardAutoAttack : MonoBehaviour
 
     void WizardAttack(){
         // 공격 발사
+
         if(wizard.className == "얼음 마법사"){
             Instantiate(wizard.magicPrefab, gameObject.transform.position + new Vector3(0,6,0), wizard.transform.rotation);
             return;

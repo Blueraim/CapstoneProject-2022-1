@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb83427ad2625b0448291f69f51933e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireWizard: {fileID: 2619989453247725402, guid: 0452cbf38faf1ac48964726f92ff494b, type: 3}
+  fireWizard: {fileID: 0}
   speed: 20
   explodeZone: {fileID: 443653445314069269, guid: 7e3e8e2f6ecdbb04a982af0a14f2d887, type: 3}
   target: {fileID: 0}

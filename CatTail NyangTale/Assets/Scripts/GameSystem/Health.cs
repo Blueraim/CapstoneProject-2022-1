@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage){
         currentHealth -= damage;
         healthBar.UpdateHealth((float)currentHealth / (float)maxHealth);
-        Debug.Log(this.gameObject.name + "'s health: " + currentHealth);
+        /*Debug.Log(this.gameObject.name + "'s health: " + currentHealth);*/
 
         // 공격 당하는 애니메이션 실행
 
@@ -40,20 +40,6 @@ public class Health : MonoBehaviour
         GameObject.Destroy(this.gameObject);
         if(this.gameObject.CompareTag("Player"))
         GameManager.instance.OnPlayerDead();
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("tree"))
-        {
-            Die();
-        }
-        /*     else if (collision.collider.CompareTag("Friends"))
-             {
-                 Die();
-             }
-        */
-
     }
 
 }

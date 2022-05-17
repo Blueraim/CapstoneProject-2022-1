@@ -13,8 +13,8 @@ public class FireMagic : MonoBehaviour
     public GameObject target;
     [HideInInspector]
     public int damage;
+    private Vector3 enemy;
 
-   
 
     void Start()
     {
@@ -23,7 +23,9 @@ public class FireMagic : MonoBehaviour
    
     void Update()
     {
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position , target.transform.position, speed * Time.deltaTime);
+        enemy = target.transform.position;
+        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, enemy, speed * Time.deltaTime);
+        enemy = new Vector3(0, 0, 0);
     }
 
     private void OnDestroy()
@@ -33,7 +35,7 @@ public class FireMagic : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log(other.gameObject.layer);
+        /*Debug.Log(other.gameObject.layer);*/
         if (other.gameObject.layer == 6)
         {
             Destroy(gameObject);
