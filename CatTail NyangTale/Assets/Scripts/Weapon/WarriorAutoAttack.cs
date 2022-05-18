@@ -10,7 +10,9 @@ public class WarriorAutoAttack : MonoBehaviour
     private float currentAttackRate;
 
     public LayerMask enemyLayer;
-    
+
+    public AudioClip clip;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,7 @@ public class WarriorAutoAttack : MonoBehaviour
         if (currentAttackRate <= 0)
         {
             Attack();
+            WeaponSoundManager.instance.SFXPlay("Warrior", clip);
         }
     }
 

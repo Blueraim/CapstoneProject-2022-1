@@ -13,6 +13,8 @@ public class WizardAutoAttack : MonoBehaviour
     private FireMagic _fireMagic;
     private explosion explosion;
 
+    public AudioClip clip;
+
     public LayerMask enemyLayer;
 
     // Start is called before the first frame update
@@ -45,6 +47,7 @@ public class WizardAutoAttack : MonoBehaviour
             
             if(wizard.attackTarget != null){
                 Attack();
+                WeaponSoundManager.instance.SFXPlay("Wizard", clip);
             }
             else
             {

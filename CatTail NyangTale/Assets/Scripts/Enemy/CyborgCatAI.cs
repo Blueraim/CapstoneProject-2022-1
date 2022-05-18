@@ -13,6 +13,7 @@ public class CyborgCatAI : MonoBehaviour
     public LayerMask playerLayer;
     public Transform target;
     public Transform attackPoint;
+    public AudioClip clip;
 
     private NavMeshAgent nav;
     private Rigidbody rigid;
@@ -53,6 +54,7 @@ public class CyborgCatAI : MonoBehaviour
             foreach (Collider player in hit)
             {
                 StartCoroutine(Attack(player));
+                WeaponSoundManager.instance.SFXPlay("UFO", clip);
             }
         }
     }

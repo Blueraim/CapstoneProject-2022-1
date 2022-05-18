@@ -213,9 +213,10 @@ MonoBehaviour:
   isAttack: 0
   playerLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1536
   target: {fileID: 4369040663306819188, guid: 309a8d791c030b54daf73ef2eb679308, type: 3}
   attackPoint: {fileID: 4482907741052019464}
+  clip: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
 --- !u!195 &7499103256784520131
 NavMeshAgent:
   m_ObjectHideFlags: 0

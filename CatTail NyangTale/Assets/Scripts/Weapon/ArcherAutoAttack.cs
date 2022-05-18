@@ -14,6 +14,8 @@ public class ArcherAutoAttack : MonoBehaviour
     private Bomb _bomb;
     private explosion explosion;
 
+    public AudioClip clip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +42,9 @@ public class ArcherAutoAttack : MonoBehaviour
             classCheck();
 
             Attack();
-        }
+
+            WeaponSoundManager.instance.SFXPlay("Archer", clip);
+}
     }
     
     void AttackRateCal()

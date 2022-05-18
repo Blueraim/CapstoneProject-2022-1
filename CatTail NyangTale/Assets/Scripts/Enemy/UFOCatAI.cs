@@ -13,12 +13,14 @@ public class UFOCatAI : MonoBehaviour
     public float attackDelayTime;
     public GameObject laserPrefab;
     public Transform attackStartPoint;
+    public AudioClip clip;
 
     private float curAttackTime = 0f;
     private float curWalkTime = 0f;
     private bool canAttack;
     private Rigidbody rigid;
     private NavMeshAgent nav;
+
 
     // Start is called before the first frame update
     private void Awake()
@@ -41,6 +43,7 @@ public class UFOCatAI : MonoBehaviour
         if (curAttackTime >= attackDelayTime)
         {
             Attack();
+            WeaponSoundManager.instance.SFXPlay("UFO", clip);
         }
         
         if(curWalkTime >= nextWalkTime){
