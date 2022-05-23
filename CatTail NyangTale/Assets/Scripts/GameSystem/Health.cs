@@ -10,10 +10,16 @@ public class Health : MonoBehaviour
     private int currentHealth;
     private Rigidbody rigid;
 
+    private Animator anim;
+
     void Start()
     {
         currentHealth = maxHealth;
         rigid = gameObject.GetComponent<Rigidbody>();
+    }
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
     }
 
     public void TakeDamage(int damage){
@@ -25,6 +31,7 @@ public class Health : MonoBehaviour
 
         if(currentHealth <= 0){
             Die();
+            OnDead();
         }
     }
 
@@ -36,10 +43,14 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
-        // 죽는 애니메이션 실행
+        OnDead(); // 죽는 애니메이션 실행
         GameObject.Destroy(this.gameObject);
         if(this.gameObject.CompareTag("Player"))
         GameManager.instance.OnPlayerDead();
     }
 
+    public void OnDead()
+    {
+        anim.SetTrigger("onDead");
+    }
 }

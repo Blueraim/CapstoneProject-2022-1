@@ -16,6 +16,8 @@ public class ArcherAutoAttack : MonoBehaviour
 
     public AudioClip clip;
 
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +48,12 @@ public class ArcherAutoAttack : MonoBehaviour
             WeaponSoundManager.instance.SFXPlay("Archer", clip);
 }
     }
-    
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     void AttackRateCal()
     {
         if (currentAttackRate > 0)
@@ -74,8 +81,7 @@ public class ArcherAutoAttack : MonoBehaviour
 
     void Attack()
     {
-        // 공격 애니메이션 실행
-        //archer.anim.SetTrigger("Attack");
+        OnAttack();
 
         ArcherAttack();
 
@@ -134,5 +140,10 @@ public class ArcherAutoAttack : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(archer.attackStartPoint.position, archer.attackRange);
+    }
+
+    public void OnAttack()
+    {
+        anim.SetTrigger("onAttack");
     }
 }

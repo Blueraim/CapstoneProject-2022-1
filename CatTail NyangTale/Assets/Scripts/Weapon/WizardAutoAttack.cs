@@ -17,6 +17,8 @@ public class WizardAutoAttack : MonoBehaviour
 
     public LayerMask enemyLayer;
 
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +60,10 @@ public class WizardAutoAttack : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
     void classCheck()
     {
         if (wizard.className == "기본 마법사")
@@ -122,7 +128,7 @@ public class WizardAutoAttack : MonoBehaviour
         wizard.anim.SetTrigger("Attack");
 
         WizardAttack();
-
+        OnAttack();
         // 공격 딜레이 초기화
         currentAttackRate = wizard.attackRate;
     }
@@ -137,4 +143,10 @@ public class WizardAutoAttack : MonoBehaviour
 
         Instantiate(wizard.magicPrefab, gameObject.transform.position, wizard.transform.rotation);
     }
+
+    public void OnAttack()
+    {
+        anim.SetTrigger("onAttack");
+    }
 }
+

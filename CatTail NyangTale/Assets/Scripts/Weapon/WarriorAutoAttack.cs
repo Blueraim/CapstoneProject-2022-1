@@ -13,6 +13,8 @@ public class WarriorAutoAttack : MonoBehaviour
 
     public AudioClip clip;
 
+    private Animator anim;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,11 @@ public class WarriorAutoAttack : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     void AttackRateCal()
     {
         if (currentAttackRate > 0)
@@ -44,8 +51,9 @@ public class WarriorAutoAttack : MonoBehaviour
     {
         // 공격 애니메이션 실행
         //warrior.anim.SetTrigger("Attack");
-
+        
         WarriorAttack();
+        OnAttack();
 
         // 공격 딜레이 초기화
         currentAttackRate = warrior.attackRate;
@@ -81,6 +89,11 @@ public class WarriorAutoAttack : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(warrior.attackPoint.position, warrior.attackRange);
+    }
+
+    public void OnAttack()
+    {
+        anim.SetTrigger("onAttack");
     }
 
 
