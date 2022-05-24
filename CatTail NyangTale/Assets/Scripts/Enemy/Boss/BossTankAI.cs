@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class TankCatAI : MonoBehaviour
+public class BossTankAI : MonoBehaviour
 {
     public int damage;
     public float attackRange;
     public float attackDelayTime;
     public float waitTime;
+    public float delayBtwSecondAttack;
     public GameObject canonballPrefab;
     public GameObject canonHead;
     public LayerMask playerLayer;
@@ -57,6 +58,7 @@ public class TankCatAI : MonoBehaviour
 
         if(curAttackTime >= attackDelayTime){
             Attack();
+            StartCoroutine(WaitForAttack());
         }
     }
 
@@ -112,7 +114,12 @@ public class TankCatAI : MonoBehaviour
     void Attack(){
         curAttackTime = 0f;
         Instantiate(canonballPrefab, attackStartPoint.transform.position, attackStartPoint.transform.rotation);
-        Debug.Log("발사");
+    }
+
+    IEnumerator WaitForAttack()
+    {
+        yield return new WaitForSeconds(delayBtwSecondAttack);
+        Attack();
     }
 
     void FreezeVelocity()

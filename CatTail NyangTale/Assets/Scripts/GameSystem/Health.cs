@@ -33,7 +33,7 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
-            OnDead();
+            //OnDead();
         }
     }
 
@@ -45,15 +45,30 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
-        if (this.gameObject.CompareTag("Player") || this.gameObject.CompareTag("Friends"))
-            OnDead();// 죽는 애니메이션 실행
+        switch(this.gameObject.tag){
+            case "Player":
+                OnDead();
+                GameManager.instance.OnPlayerDead();
+                break;
+            case "Friends":
+                OnDead();
+                break;
+            case "Enemy":
+                break;
+            case "Boss":
+                GameManager.instance.SendMessage("BossDead", SendMessageOptions.DontRequireReceiver);
+                break;
+        }
+        
         GameObject.Destroy(this.gameObject);
-        if (this.gameObject.CompareTag("Player"))
-            GameManager.instance.OnPlayerDead();
     }
 
     public void OnDead()
     {
         anim.SetTrigger("onDead");
+    }
+
+    public float GetCurrentHealth(){
+        return currentHealth;
     }
 }

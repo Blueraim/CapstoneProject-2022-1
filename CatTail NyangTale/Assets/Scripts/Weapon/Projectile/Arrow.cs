@@ -21,12 +21,14 @@ public class Arrow : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision other) {
-        if(other.gameObject.layer == 6){
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.layer == 6)
+        {
             other.gameObject.GetComponent<Health>().TakeDamage(damage);
             Destroy(gameObject);
         }
-        else if(other.gameObject.layer == 3){
+        else if (other.gameObject.layer == 3)
+        {
             Destroy(gameObject);
         }
     }

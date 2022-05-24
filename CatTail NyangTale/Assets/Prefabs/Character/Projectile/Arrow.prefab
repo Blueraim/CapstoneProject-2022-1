@@ -174,7 +174,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2355844936780293140}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1.2560551}
@@ -207,9 +207,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae46a744447f544a88d5a438e136f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _archer: {fileID: 140573756, guid: 9f5ab64bbf6d65845b7adf218e9be33b, type: 3}
   speed: 25
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  damage: 15
+  damage: 5

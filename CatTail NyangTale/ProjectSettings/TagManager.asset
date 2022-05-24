@@ -18,6 +18,7 @@ TagManager:
   - 9
   - 10
   - 11
+  - Boss
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] int countdownMinutes = 3;
+    [SerializeField] int countdownMinutes;
     [SerializeField] Text countdownText;
     public Text gameScoreText;
     private float gameScore = 0;
@@ -23,10 +23,26 @@ public class GameManager : MonoBehaviour
     public int enemySpwanTimeMax;
     public float friendSpwanTime;
     BoxCollider rangeCollider;
-    private bool bossTime;
+    private bool isBossTime;
     public GameObject gameOver;
     public static GameManager instance;
     private bool isGameover = false;
+
+    public List<GameObject> enemy = new List<GameObject>();
+    public List<GameObject> friend = new List<GameObject>();
+    int spawnEnemy;
+    int enemyIndex;
+    int friendIndex;
+    Scene scene;
+
+    public GameObject bossPrefab;
+    public GameObject bossSpawnText;
+    public Transform bossSpawnTransfrom;
+    GameObject bossInstance;
+    Health bossHealth;
+    bool isBossDead;
+
+    public GameObject stageClearText;
 
     private void Awake()
     {
@@ -37,14 +53,34 @@ public class GameManager : MonoBehaviour
         else
         {
             {
-                Debug.LogWarning("¾À¿¡ µÎ °³ ÀÌ»óÀÇ °ÔÀÓ ¸Å´ÏÀú°¡ Á¸ÀçÇÕ´Ï´Ù.");
-                Destroy(gameObject); //ÀÚ±â ÀÚ½ÅÀ» »èÁ¦
+                Debug.LogWarning("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.");
+                Destroy(gameObject); //ï¿½Ú±ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             }
         }
         Application.targetFrameRate = 60;
         rangeCollider = rangeObject.GetComponent<BoxCollider>();
         StopAllCoroutines();
         gameOver.SetActive(false);
+        bossSpawnText.SetActive(false);
+        stageClearText.SetActive(false);
+    }
+
+    void Start()
+    {
+        isBossTime = false;
+        isBossDead = false;
+        isGameover = false;
+        countdownSeconds = countdownMinutes * 60;
+        GameObject instantPlayer = Instantiate(Player, new Vector3(0, -1, 0), Quaternion.identity);
+        StartCoroutine(EnemyRandomRespawn_Coroutine());
+        StartCoroutine(FriendsRandomRespawn_Coroutine());
+        scene = SceneManager.GetActiveScene();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        timer();
     }
 
     Vector3 Return_RandomPosition()
@@ -60,18 +96,10 @@ public class GameManager : MonoBehaviour
         Vector3 respawnPosition = originPosition + RandomPostion;
         return respawnPosition;
     }
-
-    public List<GameObject> enemy = new List<GameObject>();
-    public List<GameObject> friend = new List<GameObject>();
-    int spawnEnemy;
-    int enemyIndex;
-    int friendIndex;
-    Scene scene;
    
-
     IEnumerator EnemyRandomRespawn_Coroutine()
     {
-        while (countdownSeconds > 0 && bossTime == false)
+        while (countdownSeconds > 0 && isBossTime == false)
         {
             spawnEnemy = UnityEngine.Random.Range(enemySpwanTimeMin, enemySpwanTimeMax);
             enemyIndex = UnityEngine.Random.Range(0, enemy.Count);
@@ -83,31 +111,13 @@ public class GameManager : MonoBehaviour
 
     IEnumerator FriendsRandomRespawn_Coroutine()
     {
-        while (countdownSeconds > 0 && bossTime == false)
+        while (countdownSeconds > 0 && isBossTime == false)
         {
             friendIndex = UnityEngine.Random.Range(0, friend.Count);
             yield return new WaitForSeconds(friendSpwanTime);
             GameObject instantFriends = Instantiate(friend[friendIndex], Return_RandomPosition(), Quaternion.identity);
             instantFriends.transform.parent = FriendParent.transform;
         }
-    }
-
-    void Start()
-    {
-        bossTime = false;
-        isGameover = false;
-        countdownSeconds = countdownMinutes * 60;
-        GameObject instantPlayer = Instantiate(Player, new Vector3(0, -1, 0), Quaternion.identity);
-        StartCoroutine(EnemyRandomRespawn_Coroutine());
-        StartCoroutine(FriendsRandomRespawn_Coroutine());
-        scene = SceneManager.GetActiveScene();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        timer();
-
     }
 
     public void timer()
@@ -120,34 +130,34 @@ public class GameManager : MonoBehaviour
         var span = new TimeSpan(0, 0, (int)countdownSeconds);
         countdownText.text = span.ToString(@"mm\:ss");
              
-           if (countdownSeconds <= 0 && bossTime == false)
+        if (countdownSeconds <= 0 && !isBossTime)
         {
-            bossTime = true;
-            StopAllCoroutines();
-            countdownSeconds += 60;
-            findAllChildrenEnemy(EnemyParent);
-            findAllChildrenFriend(FriendParent);
+            SpawnBoss();
         }
 
-        if (countdownSeconds <= 0 && bossTime == true)
+        if (isBossTime && isBossDead)
         {
-            if (scene.name == "MainGameScene")
-                SceneManager.LoadScene("stage2");
-            else if (scene.name == "stage2")
-                SceneManager.LoadScene("stage3");
-            else if (scene.name == "stage3")
-                SceneManager.LoadScene("EndScene");
+            stageClearText.SetActive(true);
+
+            Invoke("loadNextScene",4f);
         }
     }
 
-    public void isBossDead()
-    {
-        if (scene.name == "MainGameScene")
-            SceneManager.LoadScene("stage2");
-        else if (scene.name == "stage2")
-            SceneManager.LoadScene("stage3");
-        else if (scene.name == "stage3")
-            SceneManager.LoadScene("EndScene");
+    void SpawnBoss(){
+        StopAllCoroutines();
+        findAllChildrenEnemy(EnemyParent);
+
+        isBossTime = true;
+        isBossDead = false;
+        countdownSeconds += 60;
+        bossSpawnText.SetActive(true);
+
+        Instantiate(bossPrefab, bossSpawnTransfrom.position, bossSpawnTransfrom.rotation);
+    }
+
+    public void BossDead(){
+        isBossDead = true;
+        //Debug.Log("GameManager BossDead");
     }
 
     public void findAllChildrenEnemy(GameObject Enemy)
@@ -162,6 +172,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
     public void findAllChildrenFriend(GameObject Friend)
     {
         Transform[] friendChild = Friend.GetComponentsInChildren<Transform>();
@@ -183,7 +194,6 @@ public class GameManager : MonoBehaviour
         ScoreAdd();
     }
 
-
     public void ReTry()
     {
         SceneManager.LoadScene("StartScene");
@@ -193,7 +203,18 @@ public class GameManager : MonoBehaviour
     public void ScoreAdd()
     {
         var Score = new TimeSpan(0, 0, (int)gameScore);
-        gameScoreText.text = "»ýÁ¸ ½Ã°£ : " + Score.ToString(@"mm\:ss");
+        gameScoreText.text = "ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ : " + Score.ToString(@"mm\:ss");
     }
+    
+    void loadNextScene(){
+        findAllChildrenEnemy(EnemyParent);
+        findAllChildrenFriend(FriendParent);
 
+        if (scene.name == "MainGameScene")
+            SceneManager.LoadScene("stage2");
+        else if (scene.name == "stage2")
+            SceneManager.LoadScene("stage3");
+        else if (scene.name == "stage3")
+            SceneManager.LoadScene("EndScene");
+    }
 }
