@@ -22,14 +22,16 @@ public class Health : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public void TakeDamage(int damage){
+    public void TakeDamage(int damage)
+    {
         currentHealth -= damage;
         healthBar.UpdateHealth((float)currentHealth / (float)maxHealth);
         /*Debug.Log(this.gameObject.name + "'s health: " + currentHealth);*/
 
         // 공격 당하는 애니메이션 실행
 
-        if(currentHealth <= 0){
+        if (currentHealth <= 0)
+        {
             Die();
             OnDead();
         }
@@ -43,10 +45,11 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
-        OnDead(); // 죽는 애니메이션 실행
+        if (this.gameObject.CompareTag("Player") || this.gameObject.CompareTag("Friends"))
+            OnDead();// 죽는 애니메이션 실행
         GameObject.Destroy(this.gameObject);
-        if(this.gameObject.CompareTag("Player"))
-        GameManager.instance.OnPlayerDead();
+        if (this.gameObject.CompareTag("Player"))
+            GameManager.instance.OnPlayerDead();
     }
 
     public void OnDead()

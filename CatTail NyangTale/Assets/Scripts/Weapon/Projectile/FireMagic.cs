@@ -18,18 +18,26 @@ public class FireMagic : MonoBehaviour
 
     void Start()
     {
-        Destroy(gameObject, 10f);
+       
+       
     }
-   
+
     void Update()
     {
-        enemy = target.transform.position;
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, enemy, speed * Time.deltaTime);
-        enemy = new Vector3(0, 0, 0);
+        if (target == null)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            enemy = target.transform.position;
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, enemy, speed * Time.deltaTime);
+        }
     }
 
     private void OnDestroy()
     {
+        if(target != null)
         Instantiate(explodeZone, target.transform.position, gameObject.transform.rotation);
     }
 
@@ -38,11 +46,11 @@ public class FireMagic : MonoBehaviour
         /*Debug.Log(other.gameObject.layer);*/
         if (other.gameObject.layer == 6)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
         else if (other.gameObject.layer == 3)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 }

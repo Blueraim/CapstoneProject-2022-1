@@ -36,7 +36,7 @@ public class CyborgCatAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(nav.enabled){
+        if(nav.enabled && target!=null){
             nav.SetDestination(target.position);
             nav.isStopped = !isChase;
         }   

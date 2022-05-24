@@ -18,15 +18,21 @@ public class Magic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 10f);
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-        enemy = target.transform.position;
-       gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, enemy, speed * Time.deltaTime);
-        enemy = new Vector3(0,0,0);
+        if (target == null)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            enemy = target.transform.position;
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, enemy, speed * Time.deltaTime);
+        }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -35,11 +41,11 @@ public class Magic : MonoBehaviour
         if (other.gameObject.layer == 6)
         { 
             other.gameObject.GetComponent<Health>().TakeDamage(damage);
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
         else if (other.gameObject.layer == 3)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 }

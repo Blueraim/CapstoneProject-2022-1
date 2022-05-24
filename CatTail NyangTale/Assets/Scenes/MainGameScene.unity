@@ -4177,6 +4177,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 24693506}
     m_Modifications:
+    - target: {fileID: 1248750913856995603, guid: 939e4f6c9d2a4c74ca02a1554139bce4, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1248750914909705440, guid: 939e4f6c9d2a4c74ca02a1554139bce4, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4224,6 +4228,10 @@ PrefabInstance:
     - target: {fileID: 1248750914909705443, guid: 939e4f6c9d2a4c74ca02a1554139bce4, type: 3}
       propertyPath: m_Name
       value: Map1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1248750915005758123, guid: 939e4f6c9d2a4c74ca02a1554139bce4, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 939e4f6c9d2a4c74ca02a1554139bce4, type: 3}
@@ -4314,6 +4322,10 @@ PrefabInstance:
       propertyPath: gameScoreText
       value: 
       objectReference: {fileID: 652571551}
+    - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
+      propertyPath: countdownMinutes
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: enemySpwanTimeMax
       value: 5

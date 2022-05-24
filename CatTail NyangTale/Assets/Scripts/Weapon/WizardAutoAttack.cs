@@ -64,6 +64,7 @@ public class WizardAutoAttack : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
+
     void classCheck()
     {
         if (wizard.className == "기본 마법사")

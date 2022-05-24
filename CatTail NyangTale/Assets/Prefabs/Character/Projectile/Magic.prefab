@@ -109,10 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2ceda03d83b864ba1f33935b83b3c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wizard: {fileID: 3225313189260414813, guid: fdbfb6977ac777640ad8e4a6e8309b1c, type: 3}
+  _wizard: {fileID: 8295107259104280914, guid: a16a5fda5f6f91444860a8a68a9fa940, type: 3}
   speed: 10
   target: {fileID: 0}
-  damage: 20
+  damage: 10
 --- !u!54 &-7290812611513552426
 Rigidbody:
   m_ObjectHideFlags: 0
