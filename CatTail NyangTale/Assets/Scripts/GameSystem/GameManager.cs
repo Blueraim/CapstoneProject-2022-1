@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         else
         {
             {
-                Debug.LogWarning("���� �� �� �̻��� ���� �Ŵ����� �����մϴ�.");
+                Debug.LogWarning("Singletone Patern Error.");
                 Destroy(gameObject); //�ڱ� �ڽ��� ����
             }
         }
@@ -203,7 +203,7 @@ public class GameManager : MonoBehaviour
     public void ScoreAdd()
     {
         var Score = new TimeSpan(0, 0, (int)gameScore);
-        gameScoreText.text = "���� �ð� : " + Score.ToString(@"mm\:ss");
+        gameScoreText.text = "Servive Time : " + Score.ToString(@"mm\:ss");
     }
     
     void loadNextScene(){

@@ -57,7 +57,7 @@ public class MovementObject : MonoBehaviour
         applySpeed = runSpeed;
     }
 
-    private void RunningCancle()
+    public void RunningCancle()
     {
         isRun = false;
         applySpeed = walkSpeed;
