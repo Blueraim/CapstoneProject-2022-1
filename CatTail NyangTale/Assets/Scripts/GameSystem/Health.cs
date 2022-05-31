@@ -45,7 +45,8 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
-        switch(this.gameObject.tag){
+        switch (this.gameObject.tag)
+        {
             case "Player":
                 OnDead();
                 GameManager.instance.OnPlayerDead();
@@ -59,7 +60,7 @@ public class Health : MonoBehaviour
                 GameManager.instance.SendMessage("BossDead", SendMessageOptions.DontRequireReceiver);
                 break;
         }
-        
+
         GameObject.Destroy(this.gameObject);
     }
 

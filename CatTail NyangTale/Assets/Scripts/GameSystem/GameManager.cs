@@ -4,11 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using Firebase;
+using Firebase.Database;
+using Firebase.Extensions;
+using Firebase.Unity;
 
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
+    public Text rank1UI;
+    public Text rank2UI;
+    public Text rank3UI;
+    public Text rank4UI;
+    public Text rank5UI;
     [SerializeField] int countdownMinutes;
     [SerializeField] Text countdownText;
     public Text gameScoreText;
@@ -25,9 +33,9 @@ public class GameManager : MonoBehaviour
     BoxCollider rangeCollider;
     private bool isBossTime;
     public GameObject gameOver;
-    public static GameManager instance;
+    public static GameManager instance { get; set; }
     private bool isGameover = false;
-
+    public string stage = "1";
     public List<GameObject> enemy = new List<GameObject>();
     public List<GameObject> friend = new List<GameObject>();
     int spawnEnemy;
@@ -43,20 +51,18 @@ public class GameManager : MonoBehaviour
     bool isBossDead;
 
     public GameObject stageClearText;
+    private bool isResult;
+
+
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null) instance = this;
+        else if (instance != null)
         {
-            instance = this;
-        }
-        else
-        {
-            {
-                Debug.LogWarning("Singletone Patern Error.");
-                Destroy(gameObject); //�ڱ� �ڽ��� ����
-            }
-        }
+            Destroy(gameObject); //자기 자신을 삭제
+            Debug.LogWarning("Singletone Patern Error.");
+        } 
         Application.targetFrameRate = 60;
         rangeCollider = rangeObject.GetComponent<BoxCollider>();
         StopAllCoroutines();
@@ -65,12 +71,18 @@ public class GameManager : MonoBehaviour
         stageClearText.SetActive(false);
     }
 
+    DatabaseReference reference;
+
     void Start()
     {
+ 
+        FirebaseApp.DefaultInstance.Options.DatabaseUrl = new Uri("https://capstone4-1-920f8-default-rtdb.firebaseio.com/");
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
         isBossTime = false;
         isBossDead = false;
         isGameover = false;
-        countdownSeconds = countdownMinutes * 60;
+        isResult = false;
+    countdownSeconds = countdownMinutes * 60;
         GameObject instantPlayer = Instantiate(Player, new Vector3(0, -1, 0), Quaternion.identity);
         StartCoroutine(EnemyRandomRespawn_Coroutine());
         StartCoroutine(FriendsRandomRespawn_Coroutine());
@@ -122,7 +134,7 @@ public class GameManager : MonoBehaviour
 
     public void timer()
     {
-        if (isGameover != true)
+        if (isGameover == false)
         {
             gameScore += Time.deltaTime;
             countdownSeconds -= Time.deltaTime;
@@ -135,11 +147,15 @@ public class GameManager : MonoBehaviour
             SpawnBoss();
         }
 
-        if (isBossTime && isBossDead)
+        if (isBossTime && isBossDead && !isResult)
         {
-            stageClearText.SetActive(true);
-
-            Invoke("loadNextScene",4f);
+            Time.timeScale = 0;
+            GameResult();
+            gameOver.SetActive(true);
+            HighScore();
+            isResult = true;
+            /* stageClearText.SetActive(true);
+             *//*Invoke("loadNextScene", 4f);*/
         }
     }
 
@@ -156,6 +172,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void BossDead(){
+       
         isBossDead = true;
         //Debug.Log("GameManager BossDead");
     }
@@ -209,12 +226,96 @@ public class GameManager : MonoBehaviour
     void loadNextScene(){
         findAllChildrenEnemy(EnemyParent);
         findAllChildrenFriend(FriendParent);
+    }
 
-        if (scene.name == "MainGameScene")
+    void GameResult()
+    {
+        isGameover = true;
+        ScoreAdd();
+        PlayerInformation.score = (int)GameManager.instance.gameScore;
+        AddRank(PlayerInformation.auth.CurrentUser.Email, (int)PlayerInformation.score);
+       
+    }
+    void AddRank(string email, int score)
+    {
+        Rank rank = new Rank(email, score);
+        string json = JsonUtility.ToJson(rank);
+  /*      string Addscore = gameScore.ToString();*/
+        reference.Child("ranks").Child(GameManager.instance.stage).Child(PlayerInformation.auth.CurrentUser.UserId).SetRawJsonValueAsync(json);
+    }
+
+    public class Rank
+    {
+        public string email;
+        public int score;
+        public Rank(string email, int score)
+        {
+            this.email = email;
+            this.score = score;
+        }
+    }
+     public void NextStage()
+    {
+        if (stage == "1")
             SceneManager.LoadScene("stage2");
-        else if (scene.name == "stage2")
+        else if (stage == "2")
             SceneManager.LoadScene("stage3");
-        else if (scene.name == "stage3")
+        else if (stage == "3")
             SceneManager.LoadScene("EndScene");
+        Time.timeScale = 1;
+    }
+
+    public void SaveBestScore()
+    {
+        if (float.Parse(GameManager.instance.gameScoreText.text) <= PlayerInformation.bestScore)
+        {
+            PlayerInformation.bestScore = float.Parse(GameManager.instance.gameScoreText.text);
+        }
+    }
+
+    public void HighScore()
+    {
+        rank1UI.text = "데이터를 불러오는 중입니다.";
+        rank2UI.text = "데이터를 불러오는 중입니다.";
+        rank3UI.text = "데이터를 불러오는 중입니다.";
+        rank4UI.text = "데이터를 불러오는 중입니다.";
+        rank5UI.text = "데이터를 불러오는 중입니다.";
+        DatabaseReference reference;
+        FirebaseApp.DefaultInstance.Options.DatabaseUrl = new Uri("https://capstone4-1-920f8-default-rtdb.firebaseio.com/");
+        reference = FirebaseDatabase.DefaultInstance.GetReference("ranks").Child(GameManager.instance.stage);
+        reference.OrderByChild("score").GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsCompleted)
+            {
+                List<string> rankList = new List<string>();
+                List<string> emailList = new List<string>();
+                DataSnapshot snapshot = task.Result;
+                foreach (DataSnapshot data in snapshot.Children)
+                {
+                    IDictionary rank = (IDictionary)data.Value;
+                    emailList.Add(rank["email"].ToString());
+                    rankList.Add(rank["score"].ToString());
+                }
+                emailList.Sort();
+                rankList.Sort();
+                rank1UI.text = "플레이 한 사용자가 없습니다.";
+                rank2UI.text = "플레이 한 사용자가 없습니다.";
+                rank3UI.text = "플레이 한 사용자가 없습니다.";
+                rank4UI.text = "플레이 한 사용자가 없습니다.";
+                rank5UI.text = "플레이 한 사용자가 없습니다.";
+                List<Text> textList = new List<Text>();
+                textList.Add(rank1UI);
+                textList.Add(rank2UI);
+                textList.Add(rank3UI);
+                textList.Add(rank4UI);
+                textList.Add(rank5UI);
+                int count = 1;
+                for (int i = 0; i < rankList.Count && i < 5; i++)
+                {
+                    textList[i].text = count + "위: " + emailList[i] + " (" + rankList[i] + " 초)";
+                    count = count + 1;
+                }
+            }
+        });
     }
 }
