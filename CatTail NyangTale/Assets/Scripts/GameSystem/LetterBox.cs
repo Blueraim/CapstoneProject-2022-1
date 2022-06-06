@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LetterBox : MonoBehaviour
 {
+    void OnPreCull() => GL.Clear(true, true, Color.black);
+
     private void Awake()
     {
         Camera camera = GetComponent<Camera>();

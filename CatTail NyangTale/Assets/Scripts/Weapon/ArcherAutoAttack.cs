@@ -81,7 +81,7 @@ public class ArcherAutoAttack : MonoBehaviour
 
     void Attack()
     {
-        OnAttack();
+        OnAttack();// 공격 애니메이션 실행
 
         ArcherAttack();
 

@@ -125,11 +125,8 @@ public class WizardAutoAttack : MonoBehaviour
 
     void Attack()
     {
-        // 공격 애니메이션 실행
-        wizard.anim.SetTrigger("Attack");
-
         WizardAttack();
-        OnAttack();
+        OnAttack(); // 공격 애니메이션 실행
         // 공격 딜레이 초기화
         currentAttackRate = wizard.attackRate;
     }

@@ -49,11 +49,9 @@ public class WarriorAutoAttack : MonoBehaviour
 
     void Attack()
     {
-        // 공격 애니메이션 실행
-        //warrior.anim.SetTrigger("Attack");
         
         WarriorAttack();
-        OnAttack();
+        OnAttack(); // 공격 애니메이션 실행
 
         // 공격 딜레이 초기화
         currentAttackRate = warrior.attackRate;
