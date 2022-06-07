@@ -82,11 +82,12 @@ public class GameManager : MonoBehaviour
         isBossDead = false;
         isGameover = false;
         isResult = false;
-    countdownSeconds = countdownMinutes * 60;
+        countdownSeconds = countdownMinutes * 60;
         GameObject instantPlayer = Instantiate(Player, new Vector3(0, -1, 0), Quaternion.identity);
         StartCoroutine(EnemyRandomRespawn_Coroutine());
         StartCoroutine(FriendsRandomRespawn_Coroutine());
         scene = SceneManager.GetActiveScene();
+        HighScore();
     }
 
     // Update is called once per frame
@@ -152,7 +153,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             GameResult();
             gameOver.SetActive(true);
-            HighScore();
+           /* HighScore();*/
             isResult = true;
             /* stageClearText.SetActive(true);
              *//*Invoke("loadNextScene", 4f);*/
