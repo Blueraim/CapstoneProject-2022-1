@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 6199702431345051354}
   - component: {fileID: 6199702431345051344}
   - component: {fileID: 2439208246365698875}
+  - component: {fileID: 3175262014371183264}
   m_Layer: 6
   m_Name: UFOCat
   m_TagString: Enemy
@@ -298,6 +299,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 30
   healthBar: {fileID: 2983901803296503227}
+--- !u!95 &3175262014371183264
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6199702431345051353}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0640631298d3e6e4fa3dac1b7b543e95, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4523420961349400374
 PrefabInstance:
   m_ObjectHideFlags: 0

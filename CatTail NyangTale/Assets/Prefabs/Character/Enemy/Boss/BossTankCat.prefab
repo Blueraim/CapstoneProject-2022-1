@@ -691,6 +691,7 @@ GameObject:
   - component: {fileID: 7431012980011126214}
   - component: {fileID: 7431012980011126217}
   - component: {fileID: 7431012980011126218}
+  - component: {fileID: -2649294708373921491}
   m_Layer: 6
   m_Name: BossTankCat
   m_TagString: Boss
@@ -795,6 +796,25 @@ MonoBehaviour:
   - {fileID: 8667994578647623596, guid: 33aef7f942489ac468f792d3e394e5f4, type: 3}
   - {fileID: 191781467534277208, guid: 80e4be59b97363049ae68f89ff78dc25, type: 3}
   attackStartPoint: {fileID: 8466249114821888142}
+--- !u!95 &-2649294708373921491
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7431012980011126219}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c7d52bdca61274d9c598a288684694, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8466249114821888142
 GameObject:
   m_ObjectHideFlags: 0

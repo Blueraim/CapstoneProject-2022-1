@@ -20,13 +20,14 @@ public class UFOCatAI : MonoBehaviour
     private bool canAttack;
     private Rigidbody rigid;
     private NavMeshAgent nav;
-
+    private Animator anim;
 
     // Start is called before the first frame update
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
         nav = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -63,6 +64,7 @@ public class UFOCatAI : MonoBehaviour
     void Attack(){
         curAttackTime = 0f;
         Instantiate(laserPrefab, attackStartPoint.position, attackStartPoint.rotation);
+        OnAttack();
     }
 
     void Patroling(){
@@ -84,5 +86,10 @@ public class UFOCatAI : MonoBehaviour
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
         curWalkTime = 0;
         walkPointSet = true;
+    }
+
+    public void OnAttack()
+    {
+        anim.SetTrigger("onAttack");
     }
 }

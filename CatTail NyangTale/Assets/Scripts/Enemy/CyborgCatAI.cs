@@ -17,13 +17,14 @@ public class CyborgCatAI : MonoBehaviour
 
     private NavMeshAgent nav;
     private Rigidbody rigid;
-    //private Animator animator;
+
+    private Animator anim;
     private void Awake()
     {
         nav = GetComponent<NavMeshAgent>();
         rigid = GetComponent<Rigidbody>();
         target = FindObjectOfType<MovementObject>().transform;
-        //animator = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
 
         Invoke("ChaseStart", 2);
     }
@@ -62,8 +63,7 @@ public class CyborgCatAI : MonoBehaviour
     IEnumerator Attack(Collider _player){
         isChase = false;
         isAttack = true;
-        // 애니메이션 실행
-        //animator.SetBool("isAttack", true);
+        OnWalk(); //애니 시작
 
         yield return new WaitForSeconds(0.2f);
         _player.gameObject.GetComponent<Health>().TakeDamage(damage);
@@ -72,8 +72,6 @@ public class CyborgCatAI : MonoBehaviour
 
         isChase = true;
         isAttack = false;
-        // 애니메이션 종료
-        //animator.SetBool("isAttack", false);
     }
 
     private void OnDrawGizmosSelected()
@@ -85,6 +83,12 @@ public class CyborgCatAI : MonoBehaviour
         if(isChase){
             rigid.velocity = Vector3.zero;
             rigid.angularVelocity = Vector3.zero;
+            
         }
+    }
+
+    public void OnWalk()
+    {
+        anim.SetTrigger("onWalk");
     }
 }

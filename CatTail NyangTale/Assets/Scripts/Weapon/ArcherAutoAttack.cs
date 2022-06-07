@@ -46,7 +46,7 @@ public class ArcherAutoAttack : MonoBehaviour
             Attack();
 
             WeaponSoundManager.instance.SFXPlay("Archer", clip);
-}
+        }
     }
 
     private void Awake()

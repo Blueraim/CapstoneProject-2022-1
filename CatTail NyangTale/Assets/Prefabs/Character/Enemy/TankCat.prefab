@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 1317048894525405180}
   - component: {fileID: 1317048894525405171}
   - component: {fileID: 1317048894525405170}
+  - component: {fileID: -7919128137995026233}
   m_Layer: 6
   m_Name: TankCat
   m_TagString: Enemy
@@ -180,6 +181,25 @@ MonoBehaviour:
   - {fileID: 8667994578647623596, guid: 8e498db470e800a4e91c088c7fbd75cc, type: 3}
   - {fileID: 191781467534277208, guid: 41312139f9880f0439e687bd509ba270, type: 3}
   attackStartPoint: {fileID: 7162924326728372}
+--- !u!95 &-7919128137995026233
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317048894525405169}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c7d52bdca61274d9c598a288684694, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4018677579157453872
 GameObject:
   m_ObjectHideFlags: 0

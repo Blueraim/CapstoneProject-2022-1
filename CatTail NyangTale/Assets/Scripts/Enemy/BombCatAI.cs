@@ -12,10 +12,12 @@ public class BombCatAI : MonoBehaviour
     private bool targetOff = true;
     private Transform target;
     private NavMeshAgent nav;
+    private Animator anim;
 
     private void Awake() {
         nav = GetComponent<NavMeshAgent>();
         target = null;
+        anim = GetComponent<Animator>();
     }
 
     private void Update() {
@@ -38,6 +40,7 @@ public class BombCatAI : MonoBehaviour
             {
                 target = player.gameObject.transform;
                 nav.SetDestination(target.position);
+                anim.SetTrigger("onMove");
             }
             targetOff = false;
         }
@@ -57,5 +60,10 @@ public class BombCatAI : MonoBehaviour
     void Explosion(){
         Instantiate(explosion, transform.position + new Vector3(0,0.2f,0), transform.rotation);
         Destroy(gameObject);
+    }
+
+    public void OnMove()
+    {
+        anim.SetTrigger("onMove");
     }
 }
