@@ -634,6 +634,7 @@ GameObject:
   - component: {fileID: 8756072858765989727}
   - component: {fileID: 1032410246054259390}
   - component: {fileID: 8756072858765989725}
+  - component: {fileID: 3518462302416394159}
   m_Layer: 6
   m_Name: BossUFOCat
   m_TagString: Boss
@@ -746,3 +747,22 @@ MonoBehaviour:
   - {fileID: 8557039586504792465}
   - {fileID: 8557039586365788448}
   clip: {fileID: 8300000, guid: 78419f98379502c4dbfb2774bc94e7c1, type: 3}
+--- !u!95 &3518462302416394159
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8756072858765989724}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0640631298d3e6e4fa3dac1b7b543e95, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

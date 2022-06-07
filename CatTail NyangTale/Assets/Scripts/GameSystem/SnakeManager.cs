@@ -71,7 +71,7 @@ public class SnakeManager : MonoBehaviour
             GrowSnake(IceWizard);
             Destroy(other.gameObject);
         }
-        
+
     }
 
     private void GrowSnake(int i)
