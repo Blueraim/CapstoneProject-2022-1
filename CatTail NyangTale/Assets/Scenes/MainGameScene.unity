@@ -1492,7 +1492,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: NextStage
+  m_Text: "\uB2E4\uC74C \uC2A4\uD14C\uC774\uC9C0"
 --- !u!222 &1094666016
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1832,7 +1832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1321977587619336866, guid: 5de638caab59c5044bea312c1c355c3e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 200
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1321977587619336866, guid: 5de638caab59c5044bea312c1c355c3e, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2320,7 +2320,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1413026479
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2631,7 +2631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7180047654514502398, guid: 8391f66d30207fb4d83beb076f6b0c71, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -203
+      value: -300
       objectReference: {fileID: 0}
     - target: {fileID: 7180047654514502398, guid: 8391f66d30207fb4d83beb076f6b0c71, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2696,8 +2696,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 170, y: -250}
-  m_SizeDelta: {x: 350, y: 200}
+  m_AnchoredPosition: {x: 180, y: -250}
+  m_SizeDelta: {x: 400, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1558503235
 MonoBehaviour:
@@ -4300,6 +4300,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseButton
       objectReference: {fileID: 0}
+    - target: {fileID: 6253133821600501368, guid: ead48e3ddf7ac8148a2ab8c2d4541d00, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6253133821600501374, guid: ead48e3ddf7ac8148a2ab8c2d4541d00, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4374,7 +4378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6253133821600501375, guid: ead48e3ddf7ac8148a2ab8c2d4541d00, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 6253133821600501375, guid: ead48e3ddf7ac8148a2ab8c2d4541d00, type: 3}
       propertyPath: m_AnchoredPosition.y

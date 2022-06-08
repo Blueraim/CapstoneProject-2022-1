@@ -11,6 +11,7 @@ public class BGScroll : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         render = GetComponent<MeshRenderer>();
     }
 
