@@ -38,6 +38,7 @@ public class SnakeManager : MonoBehaviour
         }
         if(Input.GetKeyUp(KeyCode.Space)){
             HealthBuff();
+            DamageBuff();
         }
     }
 

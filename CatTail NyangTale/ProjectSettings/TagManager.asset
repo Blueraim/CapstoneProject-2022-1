@@ -19,6 +19,8 @@ TagManager:
   - 10
   - 11
   - Boss
+  - DamageBuff
+  - HealthBuff
   layers:
   - Default
   - TransparentFX
