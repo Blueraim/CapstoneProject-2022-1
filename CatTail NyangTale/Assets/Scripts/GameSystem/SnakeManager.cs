@@ -36,7 +36,9 @@ public class SnakeManager : MonoBehaviour
                 index++;
             }
         }
-
+        if(Input.GetKeyUp(KeyCode.Space)){
+            HealthBuff();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -71,7 +73,12 @@ public class SnakeManager : MonoBehaviour
             GrowSnake(IceWizard);
             Destroy(other.gameObject);
         }
-
+        else if (other.CompareTag("DamageBuff")){
+            DamageBuff();
+        }
+        else if (other.CompareTag("HealthBuff")){
+            HealthBuff();
+        }
     }
 
     private void GrowSnake(int i)
@@ -87,6 +94,31 @@ public class SnakeManager : MonoBehaviour
         {
             Destroy(gameObject);
             GameManager.instance.OnPlayerDead();
+        }
+        
+    }
+
+    private void DamageBuff(){
+        gameObject.GetComponent<WarriorClass>().DamageBuff();
+
+        foreach (var body in BodyParts)
+        {
+            if (body != null)
+            {
+                body.SendMessage("DamageBuff", SendMessageOptions.DontRequireReceiver);
+            }
+        }
+    }
+
+    private void HealthBuff(){
+        gameObject.GetComponent<Health>().HealthBuff();
+
+        foreach (var body in BodyParts)
+        {
+            if (body != null)
+            {
+                body.SendMessage("HealthBuff", SendMessageOptions.DontRequireReceiver);
+            }
         }
     }
 }

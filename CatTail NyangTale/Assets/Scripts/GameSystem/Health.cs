@@ -72,4 +72,15 @@ public class Health : MonoBehaviour
     public float GetCurrentHealth(){
         return currentHealth;
     }
+
+    public void HealthBuff(){
+        Debug.Log("BuffTest");
+        if(currentHealth + 10 > maxHealth){
+            currentHealth = maxHealth;
+        }
+        else
+            currentHealth += 10;
+
+        healthBar.UpdateHealth((float)currentHealth / (float)maxHealth);
+    }
 }

@@ -15,10 +15,13 @@ public class ComputerCatAI : MonoBehaviour
     private NavMeshAgent nav;
     private Rigidbody rigid;
 
+    private Animator anim;
+
     private void Awake()
     {
         nav = GetComponent<NavMeshAgent>();
         rigid = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -60,7 +63,7 @@ public class ComputerCatAI : MonoBehaviour
     {
         isChase = false;
         isAttack = true;
-        // 애니메이션 실행
+        OnAttack();// 애니메이션 실행
 
         yield return new WaitForSeconds(0.1f);
         rigid.AddForce(transform.forward * 20, ForceMode.Impulse);
@@ -72,7 +75,6 @@ public class ComputerCatAI : MonoBehaviour
 
         isChase = true;
         isAttack = false;
-        // 애니메이션 종료
     }
 
     private void OnDrawGizmosSelected()
@@ -94,5 +96,9 @@ public class ComputerCatAI : MonoBehaviour
         {
             other.gameObject.GetComponent<Health>().TakeDamage(damage);
         }
+    }
+    public void OnAttack()
+    {
+        anim.SetTrigger("onAttack");
     }
 }

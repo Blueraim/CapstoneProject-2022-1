@@ -11,6 +11,7 @@ public class WizardAutoAttack : MonoBehaviour
     private float currentDistfromEnemy;
     private Magic _magic;
     private FireMagic _fireMagic;
+    private StarMagic _starMagic;
     private explosion explosion;
 
     public AudioClip clip;
@@ -18,6 +19,11 @@ public class WizardAutoAttack : MonoBehaviour
     public LayerMask enemyLayer;
 
     private Animator anim;
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +42,11 @@ public class WizardAutoAttack : MonoBehaviour
             explosion = _fireMagic.explodeZone.GetComponent<explosion>();
             _fireMagic.damage = wizard.damage;
         }
+        else if(wizard.className == "별 마법사"){
+            _starMagic = wizard.magicPrefab.GetComponent<StarMagic>();
+            _starMagic.star[0].damage = wizard.damage;
+            _starMagic.star[1].damage = wizard.damage;
+        }
     }
 
     void Update()
@@ -49,20 +60,13 @@ public class WizardAutoAttack : MonoBehaviour
             
             if(wizard.attackTarget != null){
                 Attack();
-                WeaponSoundManager.instance.SFXPlay("Wizard", clip);
             }
-            else
-            {
-
+            else if(wizard.className == "별 마법사"){
+                Attack();
             }
 
             currentAttackRate = wizard.attackRate;
         }
-    }
-
-    private void Awake()
-    {
-        anim = GetComponent<Animator>();
     }
 
     void classCheck()
@@ -76,6 +80,10 @@ public class WizardAutoAttack : MonoBehaviour
         {
             explosion.damage = wizard.damage;
             _fireMagic.target = wizard.attackTarget;
+        }
+        else if(wizard.className == "별 마법사"){
+            _starMagic.star[0].damage = wizard.damage;
+            _starMagic.star[1].damage = wizard.damage;
         }
     }
 
@@ -138,13 +146,22 @@ public class WizardAutoAttack : MonoBehaviour
             Instantiate(wizard.magicPrefab, gameObject.transform.position + new Vector3(0,6,0), wizard.transform.rotation);
             return;
         }
+        else if(wizard.className == "별 마법사"){
+            wizard.magicPrefab.SetActive(true);
+            Invoke("MagicOff", wizard.attackRate - 5f);
+        }
+        else
+            Instantiate(wizard.magicPrefab, gameObject.transform.position, wizard.transform.rotation);
+    }
 
-        Instantiate(wizard.magicPrefab, gameObject.transform.position, wizard.transform.rotation);
+    void MagicOff(){
+        wizard.magicPrefab.SetActive(false);
     }
 
     public void OnAttack()
     {
         anim.SetTrigger("onAttack");
+        //WeaponSoundManager.instance.SFXPlay("Wizard", clip);
     }
 }
 

@@ -27,10 +27,13 @@ public class TankCatAI : MonoBehaviour
     private NavMeshAgent nav;
     private Rigidbody rigid;
 
+    private Animator anim;
+
     private void Awake()
     {
         nav = GetComponent<NavMeshAgent>();
         rigid = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
         moveTarget = targetPoint[0];
     }
 
@@ -113,6 +116,7 @@ public class TankCatAI : MonoBehaviour
         curAttackTime = 0f;
         Instantiate(canonballPrefab, attackStartPoint.transform.position, attackStartPoint.transform.rotation);
         Debug.Log("발사");
+        OnAttack();
     }
 
     void FreezeVelocity()
@@ -124,5 +128,10 @@ public class TankCatAI : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    public void OnAttack()
+    {
+        anim.SetTrigger("onAttack");
     }
 }
