@@ -14,6 +14,7 @@ public class SnakeManager : MonoBehaviour
     private int IceWizard = 5;
     private int Adel = 6;
     private int StarWizard = 7;
+    private int Gunner = 8;
     private int friends;
 
     [SerializeField] List<GameObject> prefab = new List<GameObject>();
@@ -83,6 +84,11 @@ public class SnakeManager : MonoBehaviour
         else if (other.CompareTag("8"))
         {
             GrowSnake(StarWizard);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("9"))
+        {
+            GrowSnake(Gunner);
             Destroy(other.gameObject);
         }
         else if (other.CompareTag("DamageBuff")){

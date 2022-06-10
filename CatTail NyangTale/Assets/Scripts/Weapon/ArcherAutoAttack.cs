@@ -12,7 +12,9 @@ public class ArcherAutoAttack : MonoBehaviour
 
     private Arrow _arrow;
     private Bomb _bomb;
+    private Bullet _bullet;
     private explosion explosion;
+
 
     public AudioClip clip;
 
@@ -33,6 +35,11 @@ public class ArcherAutoAttack : MonoBehaviour
             explosion = _bomb.explodeZone.GetComponent<explosion>();
             //Debug.Log("폭탄 컴포넌트");
         }
+        else if (archer.className == "총사")
+        {
+            _bullet = archer.arrowPrefab.GetComponent<Bullet>();
+            //Debug.Log("총알 컴포넌트");
+        }
     }
 
     void Update()
@@ -45,7 +52,8 @@ public class ArcherAutoAttack : MonoBehaviour
 
             Attack();
 
-            WeaponSoundManager.instance.SFXPlay("Archer", clip);
+            // WeaponSoundManager.instance.SFXPlay("Archer", clip);
+            //사운드 넣어놨는데 자꾸 비어있다고 오류떠서 빡쳐서 주석 처리
         }
     }
 
@@ -73,7 +81,8 @@ public class ArcherAutoAttack : MonoBehaviour
             SetRandomTarget();
             _bomb.target = archer.attackTarget.transform.position;
         }
-        else if(archer.className != "특수 궁수"){
+        else if (archer.className != "총사")
+        {
             _arrow.damage = archer.damage;
             SetTarget();
         }
