@@ -15,7 +15,7 @@ public class Sword : MonoBehaviour
     public int damage;
     private Vector3 enemy;
 
-    private Quaternion rotate;
+    public GameObject swordParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -33,11 +33,14 @@ public class Sword : MonoBehaviour
         else
         {
             enemy = target.transform.position;
-            //rotate = Quaternion.LookRotation(new Vector3(0,90,90));
-            //transform.rotation = Quaternion.Slerp(this.transform.rotation, rotate, Time.deltaTime * speed);
             transform.LookAt(enemy);
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, enemy, speed * Time.deltaTime);
         }
+    }
+    private void OnDestroy()
+    {
+        if (target != null)
+            Instantiate(swordParticle, target.transform.position+ new Vector3(0,3,0), gameObject.transform.rotation);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -53,6 +56,8 @@ public class Sword : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+   
 
 
 }

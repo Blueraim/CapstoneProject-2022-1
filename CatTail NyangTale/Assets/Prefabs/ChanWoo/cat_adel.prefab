@@ -305,9 +305,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   className: "\uC544\uB378"
   health: 3
-  attackRate: 1
-  attackRange: 7
-  damage: 1
+  attackRate: 5
+  attackRange: 10
+  damage: 5
   attackStartPoint: {fileID: 3670443953671239890}
   attackTarget: {fileID: 6238102411055689818}
   swordPrefab: {fileID: 5320665883843108510, guid: d1f6e050c033c504dabf0f2a58843db9, type: 3}
@@ -2030,13 +2030,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9052730858658516102}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2101405435827432641}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &9133734826838501629
 GameObject:
   m_ObjectHideFlags: 0

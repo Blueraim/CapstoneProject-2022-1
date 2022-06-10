@@ -13,12 +13,12 @@ public class AdelAuttoAttack : MonoBehaviour
     public LayerMask enemyLayer;
     private Animator anim;
     public GameObject swordPosition;
+    private SwordParticle swordParticle;
 
     void Start()
     {
         currentAttackRate = adel.attackRate;
         currentDistfromEnemy = adel.attackRange * 100;
-
         _sword = adel.swordPrefab.GetComponent<Sword>();
         _sword.damage = adel.damage;
       
@@ -110,6 +110,6 @@ public class AdelAuttoAttack : MonoBehaviour
 
     void AdelAttack()
     { 
-        Instantiate(adel.swordPrefab, swordPosition.transform.position, swordPosition.transform.rotation);
+        Instantiate(adel.swordPrefab,swordPosition.transform.position + new Vector3(0,3,0), swordPosition.transform.rotation);
     }
 }
