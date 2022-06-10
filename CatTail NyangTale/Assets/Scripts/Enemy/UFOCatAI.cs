@@ -44,7 +44,6 @@ public class UFOCatAI : MonoBehaviour
         if (curAttackTime >= attackDelayTime)
         {
             Attack();
-            WeaponSoundManager.instance.SFXPlay("UFO", clip);
         }
         
         if(curWalkTime >= nextWalkTime){
@@ -91,5 +90,6 @@ public class UFOCatAI : MonoBehaviour
     public void OnAttack()
     {
         anim.SetTrigger("onAttack");
+        WeaponSoundManager.instance.SFXPlay("UFO", clip);
     }
 }

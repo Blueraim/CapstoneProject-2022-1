@@ -16,7 +16,6 @@ public class SnakeManager : MonoBehaviour
     private int StarWizard = 7;
     private int friends;
 
-
     [SerializeField] List<GameObject> prefab = new List<GameObject>();
 
     private List<GameObject> BodyParts = new List<GameObject>();
@@ -88,6 +87,7 @@ public class SnakeManager : MonoBehaviour
         }
         else if (other.CompareTag("DamageBuff")){
             DamageBuff();
+            GameObject.Find("AttackBuffUI").SetActive(true);
         }
         else if (other.CompareTag("HealthBuff")){
             HealthBuff();
