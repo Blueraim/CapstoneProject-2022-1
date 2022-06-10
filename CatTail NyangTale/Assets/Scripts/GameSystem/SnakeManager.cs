@@ -12,7 +12,8 @@ public class SnakeManager : MonoBehaviour
     private int Cowboy = 3;
     private int Bomber = 4;
     private int IceWizard = 5;
-    private int adel = 6;
+    private int Adel = 6;
+    private int StarWizard = 7;
     private int friends;
 
 
@@ -77,7 +78,12 @@ public class SnakeManager : MonoBehaviour
         }
         else if (other.CompareTag("7"))
         {
-            GrowSnake(adel);
+            GrowSnake(Adel);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("8"))
+        {
+            GrowSnake(StarWizard);
             Destroy(other.gameObject);
         }
         else if (other.CompareTag("DamageBuff")){
