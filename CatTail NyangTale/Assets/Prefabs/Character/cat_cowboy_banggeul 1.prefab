@@ -1979,7 +1979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9540cdd0400d57445af7cec127a268e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warrior: {fileID: 4249888287761816403, guid: cbf1b31ef523a0b45978cff755b30c07, type: 3}
+  warrior: {fileID: -3763321311881712491}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64

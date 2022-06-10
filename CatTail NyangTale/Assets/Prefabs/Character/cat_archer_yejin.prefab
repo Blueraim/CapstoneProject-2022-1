@@ -1070,7 +1070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3774ca74d760d46a0893b8a9636a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  archer: {fileID: 534138005, guid: f638023578b13b247b28850361a4818f, type: 3}
+  archer: {fileID: 1096191193857314021}
   clip: {fileID: 8300000, guid: d9419ba0bfac1e84a95418ac5851caf6, type: 3}
 --- !u!114 &5713844155470110533
 MonoBehaviour:

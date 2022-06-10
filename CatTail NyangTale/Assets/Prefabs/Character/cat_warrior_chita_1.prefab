@@ -1684,7 +1684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9540cdd0400d57445af7cec127a268e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warrior: {fileID: 6557814662200637127, guid: 679c72d80f428c24da7634657037cec5, type: 3}
+  warrior: {fileID: 6741483562031421715}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64

@@ -1502,7 +1502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdace59bc3e030a48981bed401842450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wizard: {fileID: 8723658363503237506, guid: 0452cbf38faf1ac48964726f92ff494b, type: 3}
+  wizard: {fileID: 7907808042182766305}
   clip: {fileID: 8300000, guid: 5e1a9f876d3dafd47bc6b3dde25135fa, type: 3}
   enemyLayer:
     serializedVersion: 2
