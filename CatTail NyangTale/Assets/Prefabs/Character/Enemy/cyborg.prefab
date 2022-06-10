@@ -394,10 +394,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.17
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!54 &-6152000973657013691
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -434,7 +434,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1536
   target: {fileID: 4369040663306819188, guid: 309a8d791c030b54daf73ef2eb679308, type: 3}
-  attackPoint: {fileID: 4482907741052019464, guid: bcd0ae4d9437d9a42a73b02d86ca7aae, type: 3}
+  attackPoint: {fileID: 8415802691085114720}
   clip: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
 --- !u!114 &-4395710558066333975
 MonoBehaviour:

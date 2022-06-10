@@ -913,7 +913,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &413706789
 GameObject:
@@ -1139,24 +1139,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8648347954823636250, guid: 17bbdeaac8a14d540b0e32ae69837544, type: 3}
   m_PrefabInstance: {fileID: 6670828290607677864}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &631549990 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4180126467093713301, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
-  m_PrefabInstance: {fileID: 4180126465740146355}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &631549991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 631549990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcde71861e8d13f4e9fe26542ec08517, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RankPanel: {fileID: 191862504}
 --- !u!1 &652571549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,6 +1218,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652571549}
   m_CullTransparentMesh: 1
+--- !u!1 &885419502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 885419503}
+  m_Layer: 0
+  m_Name: BuffParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &885419503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885419502}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &921798120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4251692891676797953, guid: 7de18f7b948a570429250101392465b7, type: 3}
@@ -1269,7 +1281,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &995487816
 GameObject:
@@ -1565,7 +1577,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 631549991}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShowRank, Assembly-CSharp
         m_MethodName: ShowHelp
         m_Mode: 1
@@ -2979,7 +2991,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 631549991}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShowRank, Assembly-CSharp
         m_MethodName: HelpExit
         m_Mode: 1
@@ -3354,7 +3366,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
   m_PrefabInstance: {fileID: 4180126465740146355}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 631549990}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20dc22e135fe4374881ce77c3d2e600d, type: 3}
@@ -3920,6 +3932,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 631549991, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
+      propertyPath: RankPanel
+      value: 
+      objectReference: {fileID: 191862504}
     - target: {fileID: 4180126467093713300, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -3996,6 +4012,10 @@ PrefabInstance:
       propertyPath: gameOver
       value: 
       objectReference: {fileID: 1413026478}
+    - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
+      propertyPath: BuffParent
+      value: 
+      objectReference: {fileID: 885419502}
     - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: bossPrefab
       value: 

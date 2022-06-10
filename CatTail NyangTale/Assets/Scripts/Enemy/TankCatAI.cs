@@ -97,7 +97,7 @@ public class TankCatAI : MonoBehaviour
         {
             canMove = false;
             index++;
-            if (index > targetPoint.Length)
+            if (index >= targetPoint.Length)
             {
                 index = 0;
             }

@@ -4646,9 +4646,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 24693506}
     m_Modifications:
+    - target: {fileID: 2275171279845421530, guid: 322211f9a93834a4094134131bb1b8b9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275171279845421530, guid: 322211f9a93834a4094134131bb1b8b9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 2275171280138298458, guid: 322211f9a93834a4094134131bb1b8b9, type: 3}
       propertyPath: m_Name
       value: Map2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275171280726393764, guid: 322211f9a93834a4094134131bb1b8b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275171280726393764, guid: 322211f9a93834a4094134131bb1b8b9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275171280945775769, guid: 322211f9a93834a4094134131bb1b8b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275171280945775769, guid: 322211f9a93834a4094134131bb1b8b9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 2275171281267989757, guid: 322211f9a93834a4094134131bb1b8b9, type: 3}
       propertyPath: m_RootOrder
@@ -4693,6 +4717,10 @@ PrefabInstance:
     - target: {fileID: 2275171281267989757, guid: 322211f9a93834a4094134131bb1b8b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517423617634938944, guid: 322211f9a93834a4094134131bb1b8b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 322211f9a93834a4094134131bb1b8b9, type: 3}
