@@ -27,9 +27,11 @@ public class GameManager : MonoBehaviour
     public GameObject EnemyParent;
     public GameObject PlayerParent;
     public GameObject FriendParent;
+    public GameObject BuffParent;
     public int enemySpwanTimeMin;
     public int enemySpwanTimeMax;
     public float friendSpwanTime;
+    public float buffSpwanTime;
     BoxCollider rangeCollider;
     private bool isBossTime;
     public GameObject gameOver;
@@ -38,9 +40,11 @@ public class GameManager : MonoBehaviour
     public string stage = "1";
     public List<GameObject> enemy = new List<GameObject>();
     public List<GameObject> friend = new List<GameObject>();
+    public List<GameObject> buff = new List<GameObject>();
     int spawnEnemy;
     int enemyIndex;
     int friendIndex;
+    int buffIndex;
     Scene scene;
 
     public GameObject bossPrefab;
@@ -86,6 +90,7 @@ public class GameManager : MonoBehaviour
         GameObject instantPlayer = Instantiate(Player, new Vector3(0, -1, 0), Quaternion.identity);
         StartCoroutine(EnemyRandomRespawn_Coroutine());
         StartCoroutine(FriendsRandomRespawn_Coroutine());
+        StartCoroutine(BuffRandomRespawn_Coroutine());
         scene = SceneManager.GetActiveScene();
         HighScore();
     }
@@ -130,6 +135,17 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(friendSpwanTime);
             GameObject instantFriends = Instantiate(friend[friendIndex], Return_RandomPosition(), Quaternion.identity);
             instantFriends.transform.parent = FriendParent.transform;
+        }
+    }
+
+    IEnumerator BuffRandomRespawn_Coroutine()
+    {
+        while (countdownSeconds > 0 && isBossTime == false)
+        {
+            buffIndex = UnityEngine.Random.Range(0, buff.Count);
+            yield return new WaitForSeconds(buffSpwanTime);
+            GameObject instantBuff = Instantiate(buff[buffIndex], Return_RandomPosition(), Quaternion.identity);
+            instantBuff.transform.parent = BuffParent.transform;
         }
     }
 
