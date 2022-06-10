@@ -1958,9 +1958,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   className: "\uCE74\uC6B0\uBCF4\uC774"
-  health: 3
   attackRange: 3.2
-  attackRate: 0.7
+  attackRate: 1
   knockBackForce: 5
   damage: 10
   attackPoint: {fileID: 4725027483242205259, guid: cbf1b31ef523a0b45978cff755b30c07, type: 3}

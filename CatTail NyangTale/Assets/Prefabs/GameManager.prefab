@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4180126467093713300}
   - component: {fileID: 4180126467265654372}
+  - component: {fileID: 631549991}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180126467093713301}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -43,25 +44,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20dc22e135fe4374881ce77c3d2e600d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rank1UI: {fileID: 0}
+  rank2UI: {fileID: 0}
+  rank3UI: {fileID: 0}
+  rank4UI: {fileID: 0}
+  rank5UI: {fileID: 0}
   countdownMinutes: 1
   countdownText: {fileID: 0}
   gameScoreText: {fileID: 0}
   rangeObject: {fileID: 0}
   Player: {fileID: 4029072370383949006, guid: 309a8d791c030b54daf73ef2eb679308, type: 3}
-  Enemy: {fileID: 0}
-  enemySpwanTimeMin: 5
-  enemySpwanTimeMax: 10
+  EnemyParent: {fileID: 0}
+  PlayerParent: {fileID: 0}
+  FriendParent: {fileID: 0}
+  BuffParent: {fileID: 0}
+  enemySpwanTimeMin: 1
+  enemySpwanTimeMax: 5
   friendSpwanTime: 10
+  buffSpwanTime: 15
   gameOver: {fileID: 0}
+  stage: 1
   enemy:
-  - {fileID: 5432031345041098384, guid: 397aaed791cdd1c40bca65173c092e56, type: 3}
-  - {fileID: 5745083421826006569, guid: bcd0ae4d9437d9a42a73b02d86ca7aae, type: 3}
-  - {fileID: 4992480830056904439, guid: dd0648420b246fe42bd89826eca5c75a, type: 3}
-  - {fileID: 3457264559001827392, guid: 300d45dd3ed4d3d4db42f5fd30398488, type: 3}
+  - {fileID: 6437485389746428136, guid: c010be83b0c82da49ad68d92b4ff3fde, type: 3}
+  - {fileID: 3176768772384283405, guid: 075fafb75abae0f47a5feb54449b9891, type: 3}
+  - {fileID: 6882948758021598040, guid: 4afbd62994b1118499bd5bf1f83a754c, type: 3}
+  - {fileID: 8681313581008809245, guid: e43deb01131b58142b44bf8a8906b951, type: 3}
   friend:
-  - {fileID: 4598313950655768227, guid: 60964cb46be81194f9d80a8ee6742ac2, type: 3}
-  - {fileID: 4917286870832748742, guid: ab06ba762bf29d84fbef4c930e91a90c, type: 3}
-  - {fileID: 4288521976813406678, guid: 43273066f79210f4cac60f0f265188ce, type: 3}
-  - {fileID: 6036630389892162458, guid: 3e0e570363313814f9f50b0284ba3dc8, type: 3}
-  - {fileID: 5222085604401092063, guid: 5a890371cee2e624793b6dca3009352f, type: 3}
-  - {fileID: 7542716818946924095, guid: e25cc8bd7ac253747869ca3818c5abe2, type: 3}
+  - {fileID: 7996938466050625186, guid: 43c834bf3c8a41c4789f78cdbc3d9174, type: 3}
+  - {fileID: 2179312700427781604, guid: 9be743fc015767947809aca8b10235e8, type: 3}
+  - {fileID: 3036626859400364907, guid: 4dc7bd2e86866e047ae5ec2e57dd5435, type: 3}
+  - {fileID: 4251692893224420275, guid: 7de18f7b948a570429250101392465b7, type: 3}
+  - {fileID: 7816698338868033155, guid: c5856378938fd57428c2083b874fc07c, type: 3}
+  - {fileID: 628729132954944817, guid: da384906980112c45b792239b8f47462, type: 3}
+  - {fileID: 1211661601915583894, guid: 04c1e97b37a42114a8fbb2a0798ced99, type: 3}
+  - {fileID: 5666082380978786060, guid: 17bbdeaac8a14d540b0e32ae69837544, type: 3}
+  buff:
+  - {fileID: 1143353029522951628, guid: 4b4a46a0287725943bbc897c01c0b774, type: 3}
+  - {fileID: 8375042015083171604, guid: 5ad5c8c362f84e747869797ee2db9039, type: 3}
+  bossPrefab: {fileID: 3049735278066297667, guid: 3fed3abe44078624ca092b0a7b2c989b, type: 3}
+  bossSpawnText: {fileID: 0}
+  bossSpawnTransfrom: {fileID: 0}
+  stageClearText: {fileID: 0}
+--- !u!114 &631549991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4180126467093713301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcde71861e8d13f4e9fe26542ec08517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RankPanel: {fileID: 0}

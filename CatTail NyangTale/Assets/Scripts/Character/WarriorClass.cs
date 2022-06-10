@@ -5,7 +5,6 @@ using UnityEngine;
 public class WarriorClass : MonoBehaviour
 {
     public string className;                // 클래스 이름
-    public float health;                    // 체력
     public float attackRange;               // 사정거리
     public float attackRate;                // 공격 속도
     public float knockBackForce;            // 넉백 힘

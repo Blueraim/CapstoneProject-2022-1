@@ -16,11 +16,17 @@ public class SnakeManager : MonoBehaviour
     private int StarWizard = 7;
     private int Gunner = 8;
     private int friends;
-
+    private GameObject attackBuffUI;
     [SerializeField] List<GameObject> prefab = new List<GameObject>();
 
     private List<GameObject> BodyParts = new List<GameObject>();
     private List<Vector3> PositionHistory = new List<Vector3>();
+
+    void Awake()
+    {
+        attackBuffUI = GameObject.Find("AttackBuffUI");
+        attackBuffUI.SetActive(false);
+    }
 
     void Update()
     {
@@ -93,7 +99,7 @@ public class SnakeManager : MonoBehaviour
         }
         else if (other.CompareTag("DamageBuff")){
             DamageBuff();
-            GameObject.Find("AttackBuffUI").SetActive(true);
+            attackBuffUI.SetActive(true);
         }
         else if (other.CompareTag("HealthBuff")){
             HealthBuff();

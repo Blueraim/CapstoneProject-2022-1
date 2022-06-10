@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
         {
             buffIndex = UnityEngine.Random.Range(0, buff.Count);
             yield return new WaitForSeconds(buffSpwanTime);
-            GameObject instantBuff = Instantiate(buff[buffIndex], Return_RandomPosition(), Quaternion.identity);
+            GameObject instantBuff = Instantiate(buff[buffIndex], Return_RandomPosition(), buff[buffIndex].transform.rotation);
             instantBuff.transform.parent = BuffParent.transform;
         }
     }
