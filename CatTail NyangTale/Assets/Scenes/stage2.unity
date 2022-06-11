@@ -1201,7 +1201,7 @@ PrefabInstance:
       objectReference: {fileID: 1224791544}
     - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: stage
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: rank1UI

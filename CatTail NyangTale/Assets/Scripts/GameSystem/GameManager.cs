@@ -104,14 +104,15 @@ public class GameManager : MonoBehaviour
     Vector3 Return_RandomPosition()
     {
         Vector3 originPosition = rangeObject.transform.position;
-       
+        
         float range_X = rangeCollider.bounds.size.x;
         float range_Z = rangeCollider.bounds.size.z;
 
         range_X = UnityEngine.Random.Range((range_X / 2) * -1, range_X / 2);
         range_Z = UnityEngine.Random.Range((range_Z / 2) * -1, range_Z / 2);
-        Vector3 RandomPostion = new Vector3(range_X, 1f, range_Z);
+        Vector3 RandomPostion = new Vector3(range_X, 0f, range_Z);
         Vector3 respawnPosition = originPosition + RandomPostion;
+        respawnPosition = new Vector3(respawnPosition.x,0f,respawnPosition.z);
         return respawnPosition;
     }
    
@@ -122,7 +123,7 @@ public class GameManager : MonoBehaviour
             spawnEnemy = UnityEngine.Random.Range(enemySpwanTimeMin, enemySpwanTimeMax);
             enemyIndex = UnityEngine.Random.Range(0, enemy.Count);
             yield return new WaitForSeconds(spawnEnemy);
-            GameObject instantEnemy = Instantiate(enemy[enemyIndex], Return_RandomPosition(), Quaternion.identity);
+            GameObject instantEnemy = Instantiate(enemy[enemyIndex], Return_RandomPosition(), enemy[enemyIndex].transform.rotation);
             instantEnemy.transform.parent = EnemyParent.transform;
         }
     }
@@ -133,7 +134,7 @@ public class GameManager : MonoBehaviour
         {
             friendIndex = UnityEngine.Random.Range(0, friend.Count);
             yield return new WaitForSeconds(friendSpwanTime);
-            GameObject instantFriends = Instantiate(friend[friendIndex], Return_RandomPosition(), Quaternion.identity);
+            GameObject instantFriends = Instantiate(friend[friendIndex], Return_RandomPosition(), friend[friendIndex].transform.rotation);
             instantFriends.transform.parent = FriendParent.transform;
         }
     }

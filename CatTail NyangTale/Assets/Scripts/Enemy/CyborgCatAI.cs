@@ -26,7 +26,7 @@ public class CyborgCatAI : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         target = FindObjectOfType<MovementObject>().transform;
         anim = GetComponent<Animator>();
-
+        isChase = false;
         Invoke("ChaseStart", 2);
     }
 
@@ -41,6 +41,12 @@ public class CyborgCatAI : MonoBehaviour
         if(nav.enabled && target!=null){
             nav.SetDestination(target.position);
             nav.isStopped = !isChase;
+            if(isChase){
+                OnWalk();
+            }
+            else{
+                anim.SetBool("onWalk", false);
+            }
         }
     }
 
@@ -54,26 +60,29 @@ public class CyborgCatAI : MonoBehaviour
 
         if (hit.Length != 0 && !isAttack)
         {
+            isChase = false;
+            isAttack = true;
+            WeaponSoundManager.instance.SFXPlay("UFO", clip);
+
+            OnAttack(); //애니 시작
+            //anim.SetBool("onWalk", false);
             foreach (Collider player in hit)
             {
                 StartCoroutine(Attack(player));
-                WeaponSoundManager.instance.SFXPlay("UFO", clip);
             }
         }
     }
 
-    IEnumerator Attack(Collider _player){
-        isChase = false;
-        isAttack = true;
-        OnAttack(); //애니 시작
-
+    IEnumerator Attack(Collider _player)
+    {
         yield return new WaitForSeconds(0.2f);
         _player.gameObject.GetComponent<Health>().TakeDamage(damage);
-
+        
         yield return new WaitForSeconds(2f);
 
         isChase = true;
         isAttack = false;
+        //anim.SetBool("onWalk", true);
     }
 
     private void OnDrawGizmosSelected()
@@ -85,14 +94,14 @@ public class CyborgCatAI : MonoBehaviour
         if(isChase){
             rigid.velocity = Vector3.zero;
             rigid.angularVelocity = Vector3.zero;
-            
         }
     }
 
     public void OnWalk()
     {
-        anim.SetBool("onWalk", true);   
+        anim.SetBool("onWalk", true);
     }
+
     public void OnAttack()
     {
         anim.SetTrigger("onAttack");

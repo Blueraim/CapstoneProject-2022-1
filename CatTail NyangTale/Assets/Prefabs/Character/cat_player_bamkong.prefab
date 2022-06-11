@@ -724,10 +724,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 1
+  m_Radius: 0.15
+  m_Height: 0.78
   m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!95 &4263583010967695772
 Animator:
   serializedVersion: 3
@@ -777,7 +777,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   className: "\uAE30\uBCF8 \uC804\uC0AC"
-  health: 3
   attackRange: 3
   attackRate: 1
   knockBackForce: 0

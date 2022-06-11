@@ -44,10 +44,6 @@ public class SnakeManager : MonoBehaviour
                 index++;
             }
         }
-        if(Input.GetKeyUp(KeyCode.Space)){
-            HealthBuff();
-            DamageBuff();
-        }
     }
 
     private void OnTriggerEnter(Collider other)

@@ -12,13 +12,10 @@ public class Health : MonoBehaviour
 
     private Animator anim;
 
-    void Start()
+    private void Awake()
     {
         currentHealth = maxHealth;
         rigid = gameObject.GetComponent<Rigidbody>();
-    }
-    private void Awake()
-    {
         anim = GetComponent<Animator>();
     }
 
@@ -26,14 +23,10 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.UpdateHealth((float)currentHealth / (float)maxHealth);
-        /*Debug.Log(this.gameObject.name + "'s health: " + currentHealth);*/
-
-        // 공격 당하는 애니메이션 실행
 
         if (currentHealth <= 0)
         {
             Die();
-            //OnDead();
         }
     }
 
@@ -48,11 +41,9 @@ public class Health : MonoBehaviour
         switch (this.gameObject.tag)
         {
             case "Player":
-                OnDead();
                 GameManager.instance.OnPlayerDead();
                 break;
             case "Friends":
-                OnDead();
                 break;
             case "Enemy":
                 break;
@@ -60,7 +51,11 @@ public class Health : MonoBehaviour
                 GameManager.instance.SendMessage("BossDead", SendMessageOptions.DontRequireReceiver);
                 break;
         }
+        OnDead();
+        Invoke("GameObjectDestroy", 1.5f);
+    }
 
+    void GameObjectDestroy(){
         GameObject.Destroy(this.gameObject);
     }
 

@@ -30,11 +30,15 @@ public class BossCyborgAI : MonoBehaviour
     public float sightRange, attackRange;
     private bool playerInSightRange, playerIsAttackRange;
 
+    private Animator anim;
+
     private void Awake()
     {
         player = GameObject.Find("cat_player_bamkong(Clone)").transform;
         agent = GetComponent<NavMeshAgent>();
         rigid = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
+        anim.SetBool("onWalk", true);
     }
 
     private void FixedUpdate()
@@ -100,7 +104,7 @@ public class BossCyborgAI : MonoBehaviour
 
             alreadyAttacked = true;
             canMove = false;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            Invoke("ResetAttack", timeBetweenAttacks);
         }
         else{
             StartCoroutine(Wait());
@@ -120,6 +124,7 @@ public class BossCyborgAI : MonoBehaviour
             {
                 player.gameObject.GetComponent<Health>().TakeDamage(damage);
             }
+            anim.SetTrigger("onAttack");
         }
         
     }
