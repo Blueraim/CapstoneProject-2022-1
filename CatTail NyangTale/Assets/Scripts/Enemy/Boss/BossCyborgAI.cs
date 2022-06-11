@@ -113,6 +113,7 @@ public class BossCyborgAI : MonoBehaviour
 
     void ResetAttack(){
         alreadyAttacked = false;
+        anim.SetBool("onWalk", true);
     }
 
     void Attack(){
@@ -120,18 +121,20 @@ public class BossCyborgAI : MonoBehaviour
 
         if (hit.Length != 0)
         {
+            anim.SetBool("onWalk", false);
+            anim.SetTrigger("onAttack");
             foreach (Collider player in hit)
             {
                 player.gameObject.GetComponent<Health>().TakeDamage(damage);
             }
-            anim.SetTrigger("onAttack");
         }
-        
     }
 
     IEnumerator Wait(){
+        anim.SetTrigger("onWait");
         yield return new WaitForSeconds(timeBetweenAttacks);
         canMove = true;
+        anim.SetBool("onWalk", true);
     }
 
     void FreezeVelocity()
