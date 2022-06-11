@@ -675,6 +675,10 @@ PrefabInstance:
       propertyPath: RankPanel
       value: 
       objectReference: {fileID: 647930561}
+    - target: {fileID: 4180126467093713300, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: stage
       value: 3
@@ -765,7 +769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: friend.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: bossSpawnTransfrom
@@ -826,7 +830,11 @@ PrefabInstance:
     - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: friend.Array.data[7]
       value: 
-      objectReference: {fileID: 6765822233951415546, guid: a847c249942df1c43a3cc0c6aab12840, type: 3}
+      objectReference: {fileID: 5666082380978786060, guid: 17bbdeaac8a14d540b0e32ae69837544, type: 3}
+    - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
+      propertyPath: friend.Array.data[8]
+      value: 
+      objectReference: {fileID: 5869339413843922337, guid: e769e7c4dcf079d409201752b6bbaf59, type: 3}
     - target: {fileID: 4571393906484039366, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: m_RootOrder
       value: 8

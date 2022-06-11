@@ -41,10 +41,10 @@ GameObject:
   - component: {fileID: 3233800629604121735}
   - component: {fileID: -4087622579019978794}
   - component: {fileID: 1509508675262299399}
-  - component: {fileID: 586217109669122075}
   - component: {fileID: -7867618780736142702}
   - component: {fileID: 8671567401590757440}
   - component: {fileID: 2759266426982461}
+  - component: {fileID: 8477492427134579060}
   m_Layer: 6
   m_Name: tank
   m_TagString: Enemy
@@ -109,19 +109,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &586217109669122075
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2858400544409298493}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &-7867618780736142702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +169,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &8477492427134579060
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2858400544409298493}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &3087012910532427598
 GameObject:
   m_ObjectHideFlags: 0
