@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: -1306398549331743028}
   m_Layer: 6
   m_Name: BossUFOCat
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -595,7 +595,7 @@ MonoBehaviour:
   walkPointRange: 15
   nextWalkTime: 5
   attackDelayTime: 3
-  laserPrefab: {fileID: 2468623595760097391, guid: 96c1c39e4251cff428af2c227701abca, type: 3}
+  laserPrefab: {fileID: 7293714753930024665, guid: 2a5850b8db5d9bb4b917c43c9edd4cda, type: 3}
   attackStartPoint:
   - {fileID: 2878486922336234482}
   - {fileID: 4743278432814779305}
@@ -615,8 +615,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a80d0b8f1fe70142a1184e94c3ca8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 300
+  maxHealth: 500
   healthBar: {fileID: 7595408094731456037}
+  isAlive: 1
 --- !u!95 &-1306398549331743028
 Animator:
   serializedVersion: 3

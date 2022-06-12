@@ -1124,6 +1124,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1764313448}
     - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
+      propertyPath: buffSpwanTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: countdownText
       value: 
       objectReference: {fileID: 1059556921}
@@ -1137,7 +1141,7 @@ PrefabInstance:
       objectReference: {fileID: 1284149258}
     - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: countdownMinutes
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: enemy.Array.size
@@ -1153,7 +1157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: enemySpwanTimeMin
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: friend.Array.size

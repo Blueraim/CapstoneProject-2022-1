@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
 
     private int currentHealth;
     private Rigidbody rigid;
-
+    public bool isAlive = true;
     private Animator anim;
 
     private void Awake()
@@ -21,18 +21,15 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-        else if (currentHealth > 0)
+        if (isAlive == true)
         {
             currentHealth -= damage;
             healthBar.UpdateHealth((float)currentHealth / (float)maxHealth);
-            if (currentHealth <= 0)
-            {
-                Die();
-            }
+        }
+        if (currentHealth <= 0)
+        {
+            Die();
+            isAlive = false;
         }
     }
 

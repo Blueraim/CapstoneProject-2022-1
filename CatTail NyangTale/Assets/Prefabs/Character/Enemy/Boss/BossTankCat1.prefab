@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8477492427134579060}
   m_Layer: 6
   m_Name: BossTankCat1
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,12 +120,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 173289caa6eb63f47a4451e0f1775020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 50
   attackRange: 20
   attackDelayTime: 6
   waitTime: 1
   delayBtwSecondAttack: 0.4
-  canonballPrefab: {fileID: 9162003064039373619, guid: 619cfd9f466b2544499e543a1c4e688d, type: 3}
+  canonballPrefab: {fileID: 4914632767663553151, guid: e68fbc80adc735149842c79edebfc378, type: 3}
   canonHead: {fileID: 5030616025071858769}
   playerLayer:
     serializedVersion: 2
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 300
   healthBar: {fileID: 6600717582696614542}
+  isAlive: 1
 --- !u!95 &2759266426982461
 Animator:
   serializedVersion: 3
