@@ -27,11 +27,13 @@ public class BossTankAI : MonoBehaviour
     private GameObject attackTarget;
     private NavMeshAgent nav;
     private Rigidbody rigid;
+    private Animator anim;
 
     private void Awake()
     {
         nav = GetComponent<NavMeshAgent>();
         rigid = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
         moveTarget = targetPoint[0];
     }
 
@@ -113,6 +115,7 @@ public class BossTankAI : MonoBehaviour
 
     void Attack(){
         curAttackTime = 0f;
+        anim.SetTrigger("onAttack");
         Instantiate(canonballPrefab, attackStartPoint.transform.position, attackStartPoint.transform.rotation);
     }
 

@@ -167,14 +167,19 @@ public class GameManager : MonoBehaviour
 
         if (isBossTime && isBossDead && !isResult)
         {
-            Time.timeScale = 0;
-            GameResult();
-            gameOver.SetActive(true);
-           /* HighScore();*/
-            isResult = true;
-            /* stageClearText.SetActive(true);
-             *//*Invoke("loadNextScene", 4f);*/
+            stageClearText.SetActive(true);
+            
+            Invoke("StageClear", 3f);
         }
+    }
+
+    void StageClear(){
+        Time.timeScale = 0;
+
+        GameResult();
+        gameOver.SetActive(true);
+
+        isResult = true;
     }
 
     void SpawnBoss(){

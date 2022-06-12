@@ -714,7 +714,7 @@ PrefabInstance:
     - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: bossPrefab
       value: 
-      objectReference: {fileID: 7431012980011126219, guid: 31871a2ccad047945bc224b302fb78ab, type: 3}
+      objectReference: {fileID: 2858400544409298493, guid: 19897a55e78e0fb40918f7266e5b1a4d, type: 3}
     - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: EnemyParent
       value: 
@@ -749,7 +749,7 @@ PrefabInstance:
       objectReference: {fileID: 826904654}
     - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: countdownMinutes
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4180126467265654372, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
       propertyPath: enemy.Array.size

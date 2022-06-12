@@ -20,13 +20,14 @@ public class BossUFOAI : MonoBehaviour
     private bool canAttack;
     private Rigidbody rigid;
     private NavMeshAgent nav;
-
+    private Animator anim;
 
     // Start is called before the first frame update
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
         nav = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -63,9 +64,12 @@ public class BossUFOAI : MonoBehaviour
     void Attack(){
         curAttackTime = 0f;
         Quaternion quaternion = new Quaternion(0,-1,0,0);
+        
         for(int i = 0; i < attackStartPoint.Length; i++){
             Instantiate(laserPrefab, attackStartPoint[i].position, attackStartPoint[i].rotation);
         }
+
+        anim.SetTrigger("onAttack");
     }
 
     void Patroling(){
