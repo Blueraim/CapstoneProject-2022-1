@@ -385,7 +385,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
-  explosion: {fileID: 7819775807870019735, guid: 8d92d68153dd1b748b05a5ebf8683b66, type: 3}
+  explosion: {fileID: 6000722475183680579, guid: 3d0e056003faec444b45fabadf7ee12f, type: 3}
 --- !u!114 &8584030479727333561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   healthBar: {fileID: 298141669807258106}
+  isAlive: 1
 --- !u!95 &-4632496686399634917
 Animator:
   serializedVersion: 3
