@@ -16,12 +16,12 @@ public class DashButton : MonoBehaviour//, IPointerDownHandler, IPointerUpHandle
     }
 
     public void ButtonDown(){
-        Debug.Log("Button Down");
+       /* Debug.Log("Button Down");*/
         player.TryRun();
     }
 
     public void ButtonUp(){
-        Debug.Log("Button Up");
+        /*Debug.Log("Button Up");*/
         player.RunningCancle();
     }
 

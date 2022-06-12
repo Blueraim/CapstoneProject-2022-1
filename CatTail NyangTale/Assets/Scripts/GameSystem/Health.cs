@@ -21,12 +21,18 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        healthBar.UpdateHealth((float)currentHealth / (float)maxHealth);
-
         if (currentHealth <= 0)
         {
             Die();
+        }
+        else if (currentHealth > 0)
+        {
+            currentHealth -= damage;
+            healthBar.UpdateHealth((float)currentHealth / (float)maxHealth);
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
         }
     }
 
@@ -69,7 +75,7 @@ public class Health : MonoBehaviour
     }
 
     public void HealthBuff(){
-        Debug.Log("BuffTest");
+       /* Debug.Log("BuffTest");*/
         if(currentHealth + 10 > maxHealth){
             currentHealth = maxHealth;
         }

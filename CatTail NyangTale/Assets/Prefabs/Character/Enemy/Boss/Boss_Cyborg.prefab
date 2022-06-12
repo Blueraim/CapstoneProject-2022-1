@@ -454,7 +454,7 @@ MonoBehaviour:
     m_Bits: 1536
   detectPosition: 6
   walkPointRange: 10
-  damage: 10
+  damage: 50
   timeBetweenAttacks: 3
   attackPosition: {fileID: 7130764518501179430}
   sightRange: 10
@@ -471,7 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a80d0b8f1fe70142a1184e94c3ca8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 300
   healthBar: {fileID: 3717260372602628809}
 --- !u!95 &-7200135716925297927
 Animator:

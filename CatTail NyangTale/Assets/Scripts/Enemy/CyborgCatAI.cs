@@ -76,7 +76,12 @@ public class CyborgCatAI : MonoBehaviour
     IEnumerator Attack(Collider _player)
     {
         yield return new WaitForSeconds(0.2f);
+        if(_player != null)
         _player.gameObject.GetComponent<Health>().TakeDamage(damage);
+        else
+        {
+            StopCoroutine(Attack(_player));
+        }
         
         yield return new WaitForSeconds(2f);
 
