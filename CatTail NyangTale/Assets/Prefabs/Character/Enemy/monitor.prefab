@@ -410,7 +410,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!65 &-1965645858418691636
 BoxCollider:
@@ -453,8 +453,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectRange: 15
   damage: 10
-  isChase: 0
-  isAttack: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 1536
@@ -469,7 +467,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.25
-  m_Speed: 3.5
+  m_Speed: 7
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

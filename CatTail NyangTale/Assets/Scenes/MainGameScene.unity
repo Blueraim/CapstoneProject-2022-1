@@ -265,6 +265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarWizard
       objectReference: {fileID: 0}
+    - target: {fileID: 5666082380978786060, guid: 17bbdeaac8a14d540b0e32ae69837544, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8648347954823636250, guid: 17bbdeaac8a14d540b0e32ae69837544, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -321,6 +325,10 @@ PrefabInstance:
     - target: {fileID: 1211661601915583894, guid: 04c1e97b37a42114a8fbb2a0798ced99, type: 3}
       propertyPath: m_Name
       value: Adel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211661601915583894, guid: 04c1e97b37a42114a8fbb2a0798ced99, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1211661602185006854, guid: 04c1e97b37a42114a8fbb2a0798ced99, type: 3}
       propertyPath: m_RootOrder
@@ -2030,6 +2038,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Default Wizard
       objectReference: {fileID: 0}
+    - target: {fileID: 3036626859400364907, guid: 4dc7bd2e86866e047ae5ec2e57dd5435, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dc7bd2e86866e047ae5ec2e57dd5435, type: 3}
 --- !u!1 &1299098327
@@ -2231,6 +2243,10 @@ PrefabInstance:
     - target: {fileID: 628729132954944817, guid: da384906980112c45b792239b8f47462, type: 3}
       propertyPath: m_Name
       value: Flame Wizard
+      objectReference: {fileID: 0}
+    - target: {fileID: 628729132954944817, guid: da384906980112c45b792239b8f47462, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da384906980112c45b792239b8f47462, type: 3}

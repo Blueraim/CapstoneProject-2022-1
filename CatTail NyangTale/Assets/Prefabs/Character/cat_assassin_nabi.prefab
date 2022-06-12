@@ -848,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57b97046c1459848a0a6a9c6752b02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adel: {fileID: 809755028279713812, guid: 1ca3b6ce310dd614f8bfeef78214e992, type: 3}
+  adel: {fileID: 2790110197005672598}
   clip: {fileID: 0}
   enemyLayer:
     serializedVersion: 2

@@ -7,8 +7,10 @@ public class ComputerCatAI : MonoBehaviour
 {
     public float detectRange;
     public int damage;
-    public bool isChase;
-    public bool isAttack;
+
+    private bool isChase;
+    private bool isAttack;
+
     public LayerMask playerLayer;
     public Transform target;
 
@@ -55,6 +57,7 @@ public class ComputerCatAI : MonoBehaviour
                 target = player.transform;
             }
             nav.SetDestination(target.position);
+            OnAttack();// 애니메이션 실행
             StartCoroutine(Attack());
         }
     }
@@ -63,8 +66,7 @@ public class ComputerCatAI : MonoBehaviour
     {
         isChase = false;
         isAttack = true;
-        OnAttack();// 애니메이션 실행
-
+        gameObject.transform.LookAt(target.transform);
         yield return new WaitForSeconds(0.1f);
         rigid.AddForce(transform.forward * 20, ForceMode.Impulse);
 
@@ -92,7 +94,7 @@ public class ComputerCatAI : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
-        if (isAttack && (other.gameObject.tag == "Player" || other.gameObject.tag == "Friends")) // 동료들 태그도 추가해야 함
+        if (isAttack && (other.gameObject.tag == "Player" || other.gameObject.tag == "Friends"))
         {
             other.gameObject.GetComponent<Health>().TakeDamage(damage);
         }
