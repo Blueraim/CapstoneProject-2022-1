@@ -5,7 +5,6 @@ using UnityEngine;
 public class AdelClass : MonoBehaviour
 {
     public string className;
-    public float health;
     public float attackRate;                // 공격 속도
     public float attackRange;               // 공격 사정거리
     public int damage;                      // 데미지

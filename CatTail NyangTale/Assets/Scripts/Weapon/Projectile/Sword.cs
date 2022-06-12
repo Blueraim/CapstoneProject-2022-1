@@ -43,12 +43,12 @@ public class Sword : MonoBehaviour
             Instantiate(swordParticle, target.transform.position+ new Vector3(0,3,0), gameObject.transform.rotation);
     }
 
+
     private void OnCollisionEnter(Collision other)
     {
         /*Debug.Log(other.gameObject.layer);*/
         if (other.gameObject.layer == 6)
         {
-            other.gameObject.GetComponent<Health>().TakeDamage(damage);
             Destroy(this.gameObject);
         }
         else if (other.gameObject.layer == 3)
@@ -57,7 +57,6 @@ public class Sword : MonoBehaviour
         }
     }
 
-   
 
 
 }

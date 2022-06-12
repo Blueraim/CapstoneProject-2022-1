@@ -4886,6 +4886,7 @@ GameObject:
   - component: {fileID: 2955623459812423941}
   - component: {fileID: 2955623459812423942}
   - component: {fileID: 8233864123995158408}
+  - component: {fileID: 5417993439046233512}
   m_Layer: 0
   m_Name: Hit_03
   m_TagString: Untagged
@@ -9772,6 +9773,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a838fa9898528ad438d529649f4acd73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 15
+--- !u!65 &5417993439046233512
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2955623459812423943}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8907369062276510966
 GameObject:
   m_ObjectHideFlags: 0

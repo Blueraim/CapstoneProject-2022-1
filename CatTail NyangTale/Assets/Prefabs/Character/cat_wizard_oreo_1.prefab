@@ -1438,6 +1438,8 @@ Transform:
   - {fileID: 8980408065691518574}
   - {fileID: 2087173557869534735}
   - {fileID: 7701370603994968506}
+  - {fileID: 1437893876917535380}
+  - {fileID: 9056015473645106836}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1520,12 +1522,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   className: "\uC5BC\uC74C \uB9C8\uBC95\uC0AC"
-  health: 3
   attackRate: 5
   attackRange: 10
   damage: 15
-  attackStartPoint: {fileID: 2903559714971492258, guid: 0452cbf38faf1ac48964726f92ff494b, type: 3}
-  attackTarget: {fileID: 3229827508242427898, guid: 0452cbf38faf1ac48964726f92ff494b, type: 3}
+  attackStartPoint: {fileID: 1437893876917535380}
+  attackTarget: {fileID: 9135391336051993078}
   magicPrefab: {fileID: 5137572602027480952, guid: 9d9e2dce07b5e934884bb0285b2e6a94, type: 3}
   anim: {fileID: 1041089718995989701, guid: 0452cbf38faf1ac48964726f92ff494b, type: 3}
   muzzleFlash: {fileID: 0}
@@ -1671,6 +1672,36 @@ Transform:
   m_Father: {fileID: 7494730460730888442}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8956421253240007497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1437893876917535380}
+  m_Layer: 10
+  m_Name: AttackStart (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1437893876917535380
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8956421253240007497}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7929385037989684929}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9001542058973035999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1732,36 @@ Transform:
   - {fileID: 2935075089372164984}
   m_Father: {fileID: 3546622931558609822}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9135391336051993078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9056015473645106836}
+  m_Layer: 10
+  m_Name: AttackEnd (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9056015473645106836
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9135391336051993078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7929385037989684929}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3918125388702264230
 PrefabInstance:
