@@ -353,8 +353,8 @@ RectTransform:
   - {fileID: 191862505}
   - {fileID: 94149726}
   - {fileID: 259475817}
-  - {fileID: 1552700639}
   - {fileID: 1280178001}
+  - {fileID: 1552700639}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -404,7 +404,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 1000}
+  m_SizeDelta: {x: 1000, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &191862506
 MonoBehaviour:
@@ -665,7 +665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2959152374514297145, guid: 456d2de122c140c4db14da1b7bd86ef8, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2959152374514297145, guid: 456d2de122c140c4db14da1b7bd86ef8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1518,7 +1518,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4180126465740146356}
         m_TargetAssemblyTypeName: ShowRank, Assembly-CSharp
         m_MethodName: ShowHelp
         m_Mode: 1
@@ -2215,7 +2215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7180047654514502398, guid: 8391f66d30207fb4d83beb076f6b0c71, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7180047654514502398, guid: 8391f66d30207fb4d83beb076f6b0c71, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2861,7 +2861,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 400, y: 360}
+  m_AnchoredPosition: {x: 350, y: 360}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1896953808
@@ -2908,7 +2908,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4180126465740146356}
         m_TargetAssemblyTypeName: ShowRank, Assembly-CSharp
         m_MethodName: HelpExit
         m_Mode: 1
@@ -3932,6 +3932,17 @@ PrefabInstance:
       objectReference: {fileID: 5869339413843922337, guid: e769e7c4dcf079d409201752b6bbaf59, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
+--- !u!114 &4180126465740146356 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 631549991, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
+  m_PrefabInstance: {fileID: 4180126465740146355}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcde71861e8d13f4e9fe26542ec08517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6253133823335029043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4021,7 +4032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6253133821600501375, guid: ead48e3ddf7ac8148a2ab8c2d4541d00, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 125
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6253133821600501375, guid: ead48e3ddf7ac8148a2ab8c2d4541d00, type: 3}
       propertyPath: m_AnchoredPosition.y

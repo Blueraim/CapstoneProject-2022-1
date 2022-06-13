@@ -1229,6 +1229,17 @@ PrefabInstance:
       objectReference: {fileID: 5869339413843922337, guid: e769e7c4dcf079d409201752b6bbaf59, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
+--- !u!114 &526741708 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 631549991, guid: 3641e7ec19c14e04caf12f8475a8147e, type: 3}
+  m_PrefabInstance: {fileID: 526741707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcde71861e8d13f4e9fe26542ec08517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &591570502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1413,7 +1424,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 526741708}
         m_TargetAssemblyTypeName: ShowRank, Assembly-CSharp
         m_MethodName: HelpExit
         m_Mode: 1
@@ -2440,7 +2451,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 1000}
+  m_SizeDelta: {x: 1000, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1527003882
 MonoBehaviour:
@@ -3114,7 +3125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6253133821600501375, guid: ead48e3ddf7ac8148a2ab8c2d4541d00, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 125
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6253133821600501375, guid: ead48e3ddf7ac8148a2ab8c2d4541d00, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3222,7 +3233,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 526741708}
         m_TargetAssemblyTypeName: ShowRank, Assembly-CSharp
         m_MethodName: ShowHelp
         m_Mode: 1
