@@ -1960,7 +1960,7 @@ MonoBehaviour:
   className: "\uCE74\uC6B0\uBCF4\uC774"
   attackRange: 3.2
   attackRate: 1
-  knockBackForce: 5
+  knockBackForce: 8
   damage: 10
   attackPoint: {fileID: 4725027483242205259, guid: cbf1b31ef523a0b45978cff755b30c07, type: 3}
   anim: {fileID: 6445553148931041545, guid: cbf1b31ef523a0b45978cff755b30c07, type: 3}
@@ -1997,6 +1997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   healthBar: {fileID: 3513852555458097306}
+  isAlive: 1
 --- !u!1 &8258342362736143549
 GameObject:
   m_ObjectHideFlags: 0

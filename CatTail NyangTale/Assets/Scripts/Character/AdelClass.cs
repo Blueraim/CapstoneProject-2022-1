@@ -5,12 +5,12 @@ using UnityEngine;
 public class AdelClass : MonoBehaviour
 {
     public string className;
-    public float attackRate;                // °ø°Ý ¼Óµµ
-    public float attackRange;               // °ø°Ý »çÁ¤°Å¸®
-    public int damage;                      // µ¥¹ÌÁö
+    public float attackRate;                // ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
+    public float attackRange;               // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½
+    public int damage;                      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-    public Transform attackStartPoint;      // °ø°Ý ½ÃÀÛ À§Ä¡
-    public GameObject attackTarget;         // °ø°Ý ½ÃÀÛ À§Ä¡
+    public Transform attackStartPoint;      // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+    public GameObject attackTarget;         // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
     public GameObject swordPrefab;
 
     public Animator anim;
@@ -18,4 +18,14 @@ public class AdelClass : MonoBehaviour
     public ParticleSystem muzzleFlash;
     public AudioClip attack_Sound;
     public LayerMask enemyLayer;
+
+    public void DamageBuff(){
+        damage += 10;
+
+        Invoke("BuffOff", 10f);
+    }
+
+    void BuffOff(){
+        damage -= 10;
+    }
 }

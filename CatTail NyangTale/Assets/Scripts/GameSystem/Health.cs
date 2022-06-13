@@ -25,11 +25,12 @@ public class Health : MonoBehaviour
         {
             currentHealth -= damage;
             healthBar.UpdateHealth((float)currentHealth / (float)maxHealth);
-        }
-        if (currentHealth <= 0)
-        {
-            Die();
-            isAlive = false;
+
+            if (currentHealth <= 0)
+            {
+                Die();
+                isAlive = false;
+            }
         }
     }
 
@@ -73,11 +74,11 @@ public class Health : MonoBehaviour
 
     public void HealthBuff(){
        /* Debug.Log("BuffTest");*/
-        if(currentHealth + 10 > maxHealth){
+        if(currentHealth + 30 > maxHealth){
             currentHealth = maxHealth;
         }
         else
-            currentHealth += 10;
+            currentHealth += 30;
 
         healthBar.UpdateHealth((float)currentHealth / (float)maxHealth);
     }
