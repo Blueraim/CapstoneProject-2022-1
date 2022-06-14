@@ -106,7 +106,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!114 &-7867618780736142702
 MonoBehaviour:
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 30
   healthBar: {fileID: 6600717582696614542}
+  isAlive: 1
 --- !u!114 &8671567401590757440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +139,7 @@ MonoBehaviour:
   attackRange: 20
   attackDelayTime: 6
   waitTime: 1
+  detectTime: 1.5
   canonballPrefab: {fileID: 9162003064039373619, guid: 619cfd9f466b2544499e543a1c4e688d, type: 3}
   canonHead: {fileID: 7262261758481676184}
   playerLayer:

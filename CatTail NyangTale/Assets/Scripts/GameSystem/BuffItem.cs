@@ -6,7 +6,7 @@ public class BuffItem : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player" || other.tag == "Friends"){
+        if(other.tag == "Player"){
             Destroy(gameObject);
         }
     }

@@ -450,6 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   healthBar: {fileID: 3717260372602628809}
+  isAlive: 1
 --- !u!195 &4087176954658662864
 NavMeshAgent:
   m_ObjectHideFlags: 0

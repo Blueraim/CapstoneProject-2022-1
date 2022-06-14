@@ -58,7 +58,7 @@ public class BombCatAI : MonoBehaviour
     }
 
     void Explosion(){
-        Instantiate(explosion, transform.position + new Vector3(0,0.3f,0), transform.rotation);
+        Instantiate(explosion, transform.position + new Vector3(0,2f,0), transform.rotation);
         Destroy(gameObject);
     }
 

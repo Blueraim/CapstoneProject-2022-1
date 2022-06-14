@@ -75,8 +75,11 @@ public class CyborgCatAI : MonoBehaviour
     IEnumerator Attack(Collider _player)
     {
         yield return new WaitForSeconds(0.2f);
-        if(_player.GetComponent<Health>().isAlive==true && _player !=null)
-        _player.gameObject.GetComponent<Health>().TakeDamage(damage);
+        Debug.Log(_player.gameObject.name);
+        if(_player.GetComponent<Health>().isAlive == true)
+        {
+            _player.gameObject.GetComponent<Health>().TakeDamage(damage);
+        }
         yield return new WaitForSeconds(2f);
 
         isChase = true;

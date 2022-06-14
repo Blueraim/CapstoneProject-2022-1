@@ -679,6 +679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   healthBar: {fileID: 3755677759925784727}
+  isAlive: 1
 --- !u!54 &-2100359691169733715
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -690,7 +691,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
@@ -745,7 +746,7 @@ MonoBehaviour:
   attackStartPoint: {fileID: 3925196530922011800}
   attackTarget: {fileID: 4231198164434270851}
   magicPrefab: {fileID: 5137572602027480952, guid: 8be2ae642a7baf44d8eea680e144f633, type: 3}
-  anim: {fileID: 7004475796832383569, guid: a16a5fda5f6f91444860a8a68a9fa940, type: 3}
+  anim: {fileID: 840778703351908941}
   muzzleFlash: {fileID: 0}
   attack_Sound: {fileID: 0}
   enemyLayer:
@@ -1757,7 +1758,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9160544036262716905}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4156612148250234317}

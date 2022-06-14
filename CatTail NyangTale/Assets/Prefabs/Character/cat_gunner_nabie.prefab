@@ -405,6 +405,36 @@ Transform:
   m_Father: {fileID: 6872856179470073569}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2004971707911779010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1294285164789402119}
+  m_Layer: 0
+  m_Name: AttackPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1294285164789402119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004971707911779010}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_Children: []
+  m_Father: {fileID: 6221568343048295109}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2367619338975246803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,6 +1097,7 @@ Transform:
   - {fileID: 8381158600902423083}
   - {fileID: 8966759604424370495}
   - {fileID: 2095504074380557091}
+  - {fileID: 1294285164789402119}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1100,7 +1131,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
@@ -1132,7 +1163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  healthBar: {fileID: 303422761502216402, guid: 17b6c040ee4765648a0df3e2592863f3, type: 3}
+  healthBar: {fileID: 6198388862548779954}
   isAlive: 1
 --- !u!114 &1945921100518428980
 MonoBehaviour:
@@ -1146,7 +1177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3774ca74d760d46a0893b8a9636a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  archer: {fileID: 1096191193857314021, guid: 17b6c040ee4765648a0df3e2592863f3, type: 3}
+  archer: {fileID: -4701007635409534156}
   clip: {fileID: 8300000, guid: d9419ba0bfac1e84a95418ac5851caf6, type: 3}
 --- !u!114 &-4701007635409534156
 MonoBehaviour:
@@ -1164,10 +1195,10 @@ MonoBehaviour:
   attackRate: 2
   attackRange: 0
   damage: 7
-  attackStartPoint: {fileID: 1135888302903547606, guid: 17b6c040ee4765648a0df3e2592863f3, type: 3}
+  attackStartPoint: {fileID: 1294285164789402119}
   attackTarget: {fileID: 0}
   arrowPrefab: {fileID: 9162003064039373619, guid: b415c4cc7d41d6848b0f54d1fdfa567e, type: 3}
-  anim: {fileID: 1407353158898602031, guid: f638023578b13b247b28850361a4818f, type: 3}
+  anim: {fileID: -2317792238205566495}
   muzzleFlash: {fileID: 0}
   attack_Sound: {fileID: 8300000, guid: a58e438b7cfa445498120af0e6169082, type: 3}
   enemyLayer:
@@ -1915,3 +1946,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6683123639422343708, guid: de528e01291157e41bfa274897dc6a80, type: 3}
   m_PrefabInstance: {fileID: 4732016918848790847}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6198388862548779954 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1706470103264772749, guid: de528e01291157e41bfa274897dc6a80, type: 3}
+  m_PrefabInstance: {fileID: 4732016918848790847}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea986aa86cbffc499eb22633bf7ce4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

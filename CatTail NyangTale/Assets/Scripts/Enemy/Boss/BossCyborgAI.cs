@@ -125,7 +125,8 @@ public class BossCyborgAI : MonoBehaviour
             anim.SetTrigger("onAttack");
             foreach (Collider player in hit)
             {
-                player.gameObject.GetComponent<Health>().TakeDamage(damage);
+                if(player.GetComponent<Health>().isAlive == true)
+                    player.gameObject.GetComponent<Health>().TakeDamage(damage);
             }
         }
     }

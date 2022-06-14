@@ -9,6 +9,7 @@ public class TankCatAI : MonoBehaviour
     public float attackRange;
     public float attackDelayTime;
     public float waitTime;
+    public float detectTime;
     public GameObject canonballPrefab;
     public GameObject canonHead;
     public LayerMask playerLayer;
@@ -18,6 +19,7 @@ public class TankCatAI : MonoBehaviour
 
     private int index = 0;
     private float curAttackTime = 0f;
+    private float curDetectTime = 0f;
     private float currentDistfromcharacter;
     private bool canMove;
     private bool canAttack;
@@ -45,6 +47,7 @@ public class TankCatAI : MonoBehaviour
     private void Update()
     {
         curAttackTime += Time.deltaTime;
+        curDetectTime += Time.deltaTime;
 
         AttackTargeting();
 
@@ -74,20 +77,28 @@ public class TankCatAI : MonoBehaviour
 
         currentDistfromcharacter = attackRange * 100;
 
-        // 범위 안의 적들 중 가장 가까운 적 찾기
-        foreach (Collider character in hit)
-        {
-            Vector3 dist = character.transform.position - transform.position;
-            float sqrLen = dist.sqrMagnitude;
-
-            if (sqrLen < currentDistfromcharacter)
+        if(curDetectTime >= detectTime){
+            // 범위 안의 적들 중 가장 가까운 적 찾기
+            foreach (Collider character in hit)
             {
-                currentDistfromcharacter = sqrLen;
-                attackTarget = character.gameObject;
+                Vector3 dist = character.transform.position - transform.position;
+                float sqrLen = dist.sqrMagnitude;
+
+                if (sqrLen < currentDistfromcharacter)
+                {
+                    currentDistfromcharacter = sqrLen;
+                    attackTarget = character.gameObject;
+                }
             }
 
+            curDetectTime = 0f;
+        }
+
+        if(attackTarget != null){
             canonHead.transform.LookAt(attackTarget.transform);
         }
+        
+        canonHead.transform.localEulerAngles = new Vector3(0f, canonHead.transform.localEulerAngles.y, 0f);
     }
 
     void TargetPositionCheck()
