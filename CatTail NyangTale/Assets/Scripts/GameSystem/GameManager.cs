@@ -296,6 +296,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ReStart()
+    {
+        if (stage == "1")
+            SceneManager.LoadScene("MainGameScene");
+        else if (stage == "2")
+            SceneManager.LoadScene("stage2");
+        else if (stage == "3")
+            SceneManager.LoadScene("stage3");
+        Time.timeScale = 1;
+    }
+
     public void HighScore()
     {
         rank1UI.text = "데이터를 불러오는 중입니다.";
