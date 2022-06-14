@@ -156,6 +156,10 @@ public class GameManager : MonoBehaviour
         {
             gameScore += Time.deltaTime;
             countdownSeconds -= Time.deltaTime;
+            if( isBossTime == true && isBossDead == false  && countdownSeconds <= 0)
+            {
+                OnPlayerDead();
+            }
         }
         var span = new TimeSpan(0, 0, (int)countdownSeconds);
         countdownText.text = span.ToString(@"mm\:ss");
@@ -171,6 +175,7 @@ public class GameManager : MonoBehaviour
             
             Invoke("StageClear", 3f);
         }
+
     }
 
     void StageClear(){
@@ -190,8 +195,8 @@ public class GameManager : MonoBehaviour
         isBossDead = false;
         countdownSeconds += 60;
         bossSpawnText.SetActive(true);
-
         Instantiate(bossPrefab, bossSpawnTransfrom.position, bossSpawnTransfrom.rotation);
+
     }
 
     public void BossDead(){
